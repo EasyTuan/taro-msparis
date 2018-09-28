@@ -1,0 +1,57 @@
+@import "./mixin";
+@import "./iconfont";
+
+page, body {
+  font-size: 32px;
+  height: 100%;
+  background-color: $bg-color-base;
+  color: $color-dark;
+  box-sizing: border-box;
+}
+
+//******常用类******/
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.position-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+}

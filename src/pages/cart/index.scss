@@ -1,0 +1,5 @@
+@import "../../styles/mixin";
+
+.cart-page {
+  @include wh(100%, 100%);
+}
