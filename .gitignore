@@ -1,4 +1,4 @@
-dist/
+/dist
 .temp/
 .rn_temp/
 node_modules/
