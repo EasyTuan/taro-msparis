@@ -3,17 +3,19 @@ import * as homeApi from './service';
 export default {
   namespace: 'home',
   state: {
-    title:'啦啦啦',
+    banner: []
   },
   effects: {
     * load(_, {call, put}) {
-      yield call(homeApi.homepage, {
+      const { status, data } = yield call(homeApi.homepage, {
         platform: 'wap',
         rent_mode: 2
       });
-      yield put({ type: 'save',payload: {
-        title: '大事'
-      } });
+      if (status === 'ok') {
+        yield put({ type: 'save',payload: {
+          banner: data.banner
+        } });
+      }
     },
   },
   reducers: {

@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View } from '@tarojs/components';
+import { View, Swiper, SwiperItem, Image } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
 import './index.scss';
 
@@ -18,10 +18,21 @@ export default class Index extends Component {
   };
 
   render() {
+    const { banner } = this.props;
     return (
       <View className="home-page">
-        首页
-        {this.props.title}
+        <Swiper
+          circular
+          indicatorDots
+          indicatorColor='#999'
+          indicatorActiveColor='#333'
+          autoplay>
+          { banner.map((item, index) => (
+            <SwiperItem key={index}>
+              <Image style="width:100%;" mode="widthFix" src={item.image_src}></Image>
+            </SwiperItem>
+          ))}
+        </Swiper>
       </View>
     )
   }
