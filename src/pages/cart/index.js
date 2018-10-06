@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View } from '@tarojs/components';
+import { View, Image, Button } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
 import './index.scss';
 
@@ -8,17 +8,28 @@ import './index.scss';
 }))
 export default class Cart extends Component {
   config = {
-    navigationBarTitleText: 'cart',
+    navigationBarTitleText: '衣袋',
   };
 
-  componentDidMount = () => {
-
-  };
+  goHome() {
+    if (typeof window !== 'undefined') {
+      Taro.navigateTo({
+        url: '/pages/home/index',
+      })
+    }else {
+      Taro.switchTab({
+        url: '/pages/home/index',
+      })
+    }
+  }
 
   render() {
     return (
       <View className="cart-page">
-        cart
+        <View className="empty">
+          <Image src="http://static-r.msparis.com/uploads/b/c/bcffdaebb616ab8264f9cfc7ca3e6a4e.png" />
+          <Button type="primary" className="am-button" onClick={this.goHome}>立即去挑选美衣</Button>
+        </View>
       </View>
     )
   }

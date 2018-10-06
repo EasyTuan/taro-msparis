@@ -5,3 +5,9 @@ export const homepage = data => Request({
   method: 'GET',
   data,
 });
+
+export const product = data => Request({
+  url: '/product/filter',
+  method: 'GET',
+  data,
+});

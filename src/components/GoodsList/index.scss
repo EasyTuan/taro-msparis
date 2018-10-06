@@ -1,0 +1,112 @@
+@import "../../styles/mixin";
+
+.zan-capsule {
+  // display: inline-block;
+  font-size: 24px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 4px;
+}
+.zan-capsule__left,
+.zan-capsule__right {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.zan-capsule__left {
+  padding: 0 2px;
+  color: #fff;
+  background: #D87182;
+  border-radius: 2px;
+  border: 1px solid #D87182;
+  margin-right: 4px;
+}
+.zan-capsule__center {
+  padding: 0 2px;
+  color: #fff;
+  // background: #D87182;
+  border-radius: 2px 0 0 2px;
+  // border: 1px solid #D87182;
+  margin-right: 4px;
+  background: #555;
+  border: 1px solid #555;
+}
+
+.zan-capsule__right {
+  padding: 0 5px;
+  color: #999;
+  border-radius: 2px;
+  border: 2px solid #999;
+}
+
+.zan-capsule--danger .zan-capsule__left {
+  color: #fff;
+  background: #f24544;
+  border-color: #f24544;
+}
+
+.zan-capsule--danger .zan-capsule__right {
+  color: #f24544;
+  border-color: #f24544;
+}
+.goods-list-container {
+  background-color: #fff;
+  .goods-ul {
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .goods-li {
+      width: 50%;
+      margin-bottom: 40px;
+      padding-left: 20px;
+      box-sizing: border-box;
+      .pos {
+        position: relative;
+        padding-bottom: 8px;
+        .img-container {
+          img {
+            height: 519px;
+            width: auto;
+          }
+        }
+      }
+      span,text {
+        display: block;
+        color: #666;
+        font-size: 26px;
+        line-height: 36px;
+      }
+    }
+  }
+  .mage-box-wrap {
+    position: relative;
+  }
+
+  .unable,
+  .sold-out {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    .sales-end {
+      position: absolute;
+      font-size: 30px;
+      width: 180px;
+      height: 180px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 100%;
+      text-align: center;
+      line-height: 180px;
+      color: #fff;
+    }
+  }
+}
+

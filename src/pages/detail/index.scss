@@ -1,0 +1,5 @@
+@import "../../styles/mixin";
+
+.detail-page {
+  @include wh(100%, 100%);
+}

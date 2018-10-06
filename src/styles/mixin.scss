@@ -68,3 +68,9 @@ $tag-dark:#555 !default;
   font-size: $size;
   color: $color;
 }
+
+// flex 布局和 子元素 对其方式
+@mixin fj($type: space-between) {
+  display: flex;
+  justify-content: $type;
+}

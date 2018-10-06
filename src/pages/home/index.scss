@@ -2,4 +2,20 @@
 
 .home-page {
   @include wh(100%, 100%);
+  .nav-list {
+    @include fj(center);
+    flex-wrap: wrap;
+    margin-top: 20px;
+    .nav-item {
+      width: 23%;
+      margin: 0 5px;
+    }
+  }
+  .recommend {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 36px;
+  }
 }

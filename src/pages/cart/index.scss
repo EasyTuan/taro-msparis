@@ -2,4 +2,26 @@
 
 .cart-page {
   @include wh(100%, 100%);
+  .empty {
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include wh(100%, 100%);
+    background: #fff;
+    text-align: center;
+    img,image {
+      @include wh(162px, 172px);
+      margin: 45% auto 80px auto;
+    }
+    .am-button {
+      width: 430px;
+      height: 80px;
+      line-height: 80px;
+      margin: 0 auto;
+      background-color: $bg-color-panel;
+      border: 1px solid $bg-color-panel;
+      border-radius: 40px;
+      font-size: 30px;
+    }
+  }
 }

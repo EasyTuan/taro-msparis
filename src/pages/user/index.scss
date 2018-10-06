@@ -2,4 +2,202 @@
 
 .user-page {
   @include wh(100%, 100%);
+  padding: 0 45px;
+  box-sizing: border-box;
+  .taro-img,image {
+    height: 100%;
+  }
+  .not-login {
+    .to-login {
+      width: 100%;
+      padding: 50px 0;
+      display: flex;
+      justify-content: space-between;
+      .left {
+        display: flex;
+        min-height: 200px;
+        flex-direction: column;
+        justify-content: space-between;
+        .name {
+          width: 432px;
+          font-size: 68px;
+          color: #999999;
+          white-space: pre-wrap;
+          word-break:break-all;
+          &.black {
+            color: #000000;
+          }
+        }
+        .msg {
+          width: 50px;
+          height: 40px;
+          margin-top: 50px;
+          margin-left: 25px;
+          object-fit: contain;
+        }
+      }
+      .avatar-container {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        .avatar {
+          width: 200px;
+          height: 200px;
+          object-fit: contain;
+        }
+      }
+    }
+    .list {
+      display: flex;
+      justify-content: space-between;
+      width: 660px;
+      height: 150px;
+      margin: 0 auto;
+      background: #F9F9F9;
+      border-radius: 10px;
+      .item {
+        width: 120px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        .taro-img {
+          height: auto;
+        }
+        img,image {
+          width: 60px;
+          object-fit: contain;
+          margin: 0 auto;
+        }
+        span,text {
+          margin-top: 10px;
+          color: #666666;
+          font-size:22px;
+        }
+        i.num {
+          min-width: 32px;
+          height: 32px;
+          line-height: 32px;
+          font-size: 18px;
+          text-align: center;
+          color: #ffffff;
+          background: #EC5D75;
+          border-radius: 16px;
+          padding: 0 10px;
+          box-sizing: border-box;
+          position: absolute;
+          top: 22px;
+          left: 68px;
+        }
+      }
+    }
+  }
+  .login {
+    .card {
+      width: 660px;
+      padding: 40px 0;
+      border-bottom: 2px solid #eeeeee;
+      .type {
+        background-image: linear-gradient(-90deg, #E2868B 0%, #E5C1C1 97%);
+        border-radius: 10px;
+        height: 190px;
+        &.type0 {
+          background: url('http://static-r.msparis.com/uploads/e/3/e3fe0890238d2f11947909936b020203.png') center no-repeat;
+          background-size: contain;
+        }
+        &.type1 {
+          background: url('http://static-r.msparis.com/uploads/5/c/5ca682fe16bd0f0f6a24fd963a7494ee.png') center no-repeat;
+          background-size: contain;
+        }
+        &.type2 {
+          background: url('http://static-r.msparis.com/uploads/b/6/b682e817f2283d369b93c3bda2077f7f.png') center no-repeat;
+          background-size: contain;
+        }
+        .operation {
+          width: 380px;
+          height: 100%;
+          margin-left: 260px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .txt {
+            color: #ffffff;
+            text-align: center;
+            font-size: 24px;
+            span,text {
+              font-size: 28px;
+              margin-right: 10px;
+            }
+          }
+          .btn {
+            width: 210px;
+            height: 66px;
+            display: flex;
+            align-items: center;
+            border-radius: 100px;
+            background: #ffffff;
+            font-size: 26px;
+            color: #E2868B;
+            padding-left: 36px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            i,icon {
+              line-height: 66px;
+              font-size: 22px;
+              &:first-child {
+                margin-left: 10px;
+              }
+              &:last-child {
+                margin-left:-10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100px;
+      border-bottom: 2px solid #eeeeee;
+      .taro-img,image {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+      .left {
+        display: flex;
+        align-items: center;
+        line-height: 100%;
+        span,text {
+          margin-left: 20px;
+          white-space: nowrap;
+        }
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        line-height: 100%;
+        .num {
+          display: inline-block;
+          font-size: 18px;
+          text-align: center;
+          color: #ffffff;
+          background: #EC5D75;
+          border-radius: 20px;
+          padding: 6px 12px;
+          box-sizing: border-box;
+          margin-right: 25px;
+        }
+        i.arrow {
+          font-size: 20px;
+        }
+      }
+    }
+  }
 }

@@ -9,6 +9,14 @@ page, body {
   box-sizing: border-box;
 }
 
+.taro-img,image {
+  width: 100%;
+}
+
+button {
+  outline:none;
+}
+
 //******常用类******/
 .clearfix:after {
   content: '';

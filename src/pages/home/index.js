@@ -1,6 +1,8 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Swiper, SwiperItem, Image } from '@tarojs/components';
+import { View, Text, Image } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
+import MySwiper from '../../components/MySwiper';
+import GoodsList from '../../components/GoodsList';
 import './index.scss';
 
 @connect(({home}) => ({
@@ -15,24 +17,25 @@ export default class Index extends Component {
     this.props.dispatch({
       type: 'home/load',
     });
+    this.props.dispatch({
+      type: 'home/product',
+    });
   };
 
   render() {
-    const { banner } = this.props;
+    const { banner, brands, products_list } = this.props;
     return (
       <View className="home-page">
-        <Swiper
-          circular
-          indicatorDots
-          indicatorColor='#999'
-          indicatorActiveColor='#333'
-          autoplay>
-          { banner.map((item, index) => (
-            <SwiperItem key={index}>
-              <Image style="width:100%;" mode="widthFix" src={item.image_src}></Image>
-            </SwiperItem>
+        <MySwiper banner={banner} />
+        <View className="nav-list">
+          { brands.map((item, index) => (
+            <View className="nav-item" key={index}>
+              <Image mode="widthFix" src={item.image_src}></Image>
+            </View>
           ))}
-        </Swiper>
+        </View>
+        <Text className="recommend">为你推荐</Text>
+        <GoodsList list={products_list} />
       </View>
     )
   }

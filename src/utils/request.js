@@ -1,13 +1,21 @@
 import Taro from '@tarojs/taro';
 import { baseUrl, noConsole } from '../config';
 
+const request_data = {
+  platform: 'wap',
+  rent_mode: 2,
+};
+
 export default (options = { method: 'GET', data: {} }) => {
   if (!noConsole) {
     console.log(`${new Date().toLocaleString()}【 M=${options.url} 】P=${JSON.stringify(options.data)}`);
   }
   return Taro.request({
     url: baseUrl + options.url,
-    data: options.data,
+    data: {
+      ...request_data,
+      ...options.data
+    },
     headers: {
       'Content-Type': 'application/json',
     },
