@@ -36,7 +36,7 @@ export default class User extends Component {
               <Image className="avatar" src={avatar_img} />
             </View>
           </View>
-          <View className="list">
+          {/* <View className="list">
             {
               list && list.map((item, index) => (
                 <View className="item" key={index}>
@@ -46,7 +46,7 @@ export default class User extends Component {
                 </View>
               ))
             }
-          </View>
+          </View> */}
         </View>
         <View className="login">
           <View className="card">
@@ -84,7 +84,7 @@ export default class User extends Component {
           <View className="item">
             <View className="left">
               <Image className="icon-left" src={deposit_img} />
-              <Text>我的押金</Text>
+              <Text>我的钱包</Text>
             </View>
             <View className="right">
               <Icon className="iconfont icon-more arrow"></Icon>
