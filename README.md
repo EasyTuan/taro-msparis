@@ -12,11 +12,10 @@
 
 [查看demo请戳这里](https://ms.caibowen.net/)（请用chrome手机模式预览）
 
-H5版
-<img src="./screenshots/qr-code.png" width="250" height="250"/>
+### H5版 && 微信小程序版
 
-微信小程序版
-<img src="./screenshots/weapp_code.png" width="250" height="250"/>
+<img src="screenshots/qr-code.png" width="250" height="250"/>
+<img src="screenshots/weapp_code.png" width="250" height="250"/>
 
 # 技术栈
 
