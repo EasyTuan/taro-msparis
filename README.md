@@ -14,8 +14,7 @@
 
 ### H5版 && 微信小程序版
 
-<img src="screenshots/qr-code.png" width="250" height="250"/>
-<img src="screenshots/weapp_code.png" width="250" height="250"/>
+<img src="screenshots/qr-code.png" width="250" height="250"/> <img src="screenshots/weapp_code.png" width="250" height="250"/>
 
 # 技术栈
 
