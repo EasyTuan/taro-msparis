@@ -10,7 +10,13 @@
 
 # 效果演示
 
-暂无
+[查看demo请戳这里](https://ms.caibowen.net/)（请用chrome手机模式预览）
+
+H5版
+<img src="./screenshots/qr-code.png" width="250" height="250"/>
+
+微信小程序版
+<img src="./screenshots/weapp_code.png" width="250" height="250"/>
 
 # 技术栈
 
