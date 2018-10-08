@@ -20,8 +20,14 @@ export default class User extends Component {
 
   };
 
+  goPage(e) {
+    Taro.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+  }
+
   render() {
-    const { list, mobile, coupon_number } = this.props;
+    const { mobile, coupon_number } = this.props;
     return (
       <View className="user-page">
         <View className="not-login">
@@ -55,8 +61,7 @@ export default class User extends Component {
                 <View className="txt">您还不是会员</View>
                 <View className="btn">
                   成为会员
-                  <Icon className="iconfont icon-more"></Icon>
-                  <Icon className="iconfont icon-more"></Icon>
+                  <View className="iconfont icon-membership_more"></View>
                 </View>
               </View>
             </View>
@@ -67,8 +72,8 @@ export default class User extends Component {
               <Text>优惠券</Text>
             </View>
             <View className="right">
-              {coupon_number && <Icon className="num">{coupon_number}</Icon>}
-              <Icon className="iconfont icon-more arrow"></Icon>
+              {coupon_number && <View className="num">{coupon_number}</View>}
+              <View className="iconfont icon-more arrow"></View>
             </View>
           </View>
           <View className="item" onClick={this.goWebview}>
@@ -78,16 +83,16 @@ export default class User extends Component {
             </View>
             <View className="right">
               <Text className="num">各得60元现金</Text>
-              <Icon className="iconfont icon-more arrow"></Icon>
+              <View className="iconfont icon-more arrow"></View>
             </View>
           </View>
-          <View className="item">
+          <View className="item" data-url="/pages/about/index" onClick={this.goPage}>
             <View className="left">
               <Image className="icon-left" src={deposit_img} />
-              <Text>我的钱包</Text>
+              <Text>关于</Text>
             </View>
             <View className="right">
-              <Icon className="iconfont icon-more arrow"></Icon>
+              <View className="iconfont icon-more arrow"></View>
             </View>
           </View>
         </View>

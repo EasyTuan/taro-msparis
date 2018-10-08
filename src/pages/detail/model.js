@@ -3,7 +3,12 @@ import * as detailApi from './service';
 export default {
   namespace: 'detail',
   state: {
-
+    imageObj: [],
+    detail: {},
+    goodsdata: {},
+    cartAmount: 0,
+    currentChooseId: '',
+    specificationsList: [],
   },
 
   effects: {

@@ -145,15 +145,9 @@
             padding-left: 36px;
             margin-top: 10px;
             box-sizing: border-box;
-            i,icon {
-              line-height: 66px;
-              font-size: 22px;
-              &:first-child {
-                margin-left: 10px;
-              }
-              &:last-child {
-                margin-left:-10px;
-              }
+            .iconfont {
+              font-size: 26px;
+              margin-left: 4px;
             }
           }
         }
