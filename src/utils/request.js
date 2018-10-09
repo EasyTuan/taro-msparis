@@ -12,11 +12,11 @@ export default (options = { method: 'GET', data: {} }) => {
   }
   return Taro.request({
     url: baseUrl + options.url,
-    data: {
+    data: JSON.stringify({
       ...request_data,
       ...options.data
-    },
-    headers: {
+    }),
+    header: {
       'Content-Type': 'application/json',
     },
     method: options.method.toUpperCase(),
