@@ -27,7 +27,7 @@ export default class Cart extends Component {
     return (
       <View className="cart-page">
         <View className="empty">
-          <Image src="http://static-r.msparis.com/uploads/b/c/bcffdaebb616ab8264f9cfc7ca3e6a4e.png" />
+          <Image mode="widthFix" src="http://static-r.msparis.com/uploads/b/c/bcffdaebb616ab8264f9cfc7ca3e6a4e.png" />
           <Button type="primary" className="am-button" onClick={this.goHome}>立即去挑选美衣</Button>
         </View>
       </View>

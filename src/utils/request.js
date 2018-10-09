@@ -12,10 +12,10 @@ export default (options = { method: 'GET', data: {} }) => {
   }
   return Taro.request({
     url: baseUrl + options.url,
-    data: JSON.stringify({
+    data: {
       ...request_data,
       ...options.data
-    }),
+    },
     header: {
       'Content-Type': 'application/json',
     },

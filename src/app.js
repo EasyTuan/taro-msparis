@@ -25,7 +25,8 @@ class App extends Component {
       'pages/about/index',
       'pages/size/index',
       'pages/login/index',
-      'pages/invite/index',
+      'pages/message/index',
+      'pages/couponList/index'
     ],
     window: {
       backgroundTextStyle: 'dark',

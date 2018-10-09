@@ -9,7 +9,7 @@
     @include wh(100%, 100%);
     background: #fff;
     text-align: center;
-    img,image {
+    .taro-img,image {
       @include wh(162px, 172px);
       margin: 45% auto 80px auto;
     }

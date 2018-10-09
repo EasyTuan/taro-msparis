@@ -26,15 +26,27 @@ export default class User extends Component {
     })
   }
 
+  goToPage = (e) => {
+    if(!this.props.access_token) {
+      Taro.navigateTo({
+        url: '/pages/login/index',
+      })
+      return;
+    }
+    Taro.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+  }
+
   render() {
-    const { mobile, coupon_number, nickname } = this.props;
+    const { mobile, coupon_number, nickname, list } = this.props;
     return (
       <View className="user-page">
         <View className="not-login">
           <View className="to-login" data-url="/pages/login/index" onClick={this.goPage}>
             <View className="left">
               <View className={mobile ? 'name black' : 'name '}>{ nickname || '请登录 >'}</View>
-              <View className="msg">
+              <View className="msg" data-url="/pages/message/index" onClick={this.goToPage}>
                 <Image src={message_img} />
               </View>
             </View>
@@ -42,7 +54,7 @@ export default class User extends Component {
               <Image className="avatar" src={avatar_img} />
             </View>
           </View>
-          {/* <View className="list">
+          <View className="list">
             {
               list && list.map((item, index) => (
                 <View className="item" key={index}>
@@ -52,7 +64,7 @@ export default class User extends Component {
                 </View>
               ))
             }
-          </View> */}
+          </View>
         </View>
         <View className="login">
           <View className="card">
@@ -66,23 +78,13 @@ export default class User extends Component {
               </View>
             </View>
           </View>
-          {/* <View className="item">
+          <View className="item" data-url="/pages/couponList/index" onClick={this.goToPage}>
             <View className="left">
-              <Image alt="" className="icon-left" src={coupon_img} />
+              <Image className="icon-left" src={coupon_img} />
               <Text>优惠券</Text>
             </View>
             <View className="right">
               {coupon_number && <View className="num">{coupon_number}</View>}
-              <View className="iconfont icon-more arrow"></View>
-            </View>
-          </View> */}
-          <View className="item" data-url="/pages/invite/index" onClick={this.goPage}>
-            <View className="left">
-              <Image alt="" className="icon-left" src={gift_img} />
-              <Text>邀请有奖</Text>
-            </View>
-            <View className="right">
-              <Text className="num">各得60元现金</Text>
               <View className="iconfont icon-more arrow"></View>
             </View>
           </View>

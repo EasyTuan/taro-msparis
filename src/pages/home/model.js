@@ -9,7 +9,7 @@ export default {
   },
   effects: {
     * load(_, {call, put}) {
-      const { status, data } = yield call(homeApi.homepage);
+      const { status, data } = yield call(homeApi.homepage, {});
       if (status === 'ok') {
         yield put({ type: 'save',payload: {
           banner: data.banner,
