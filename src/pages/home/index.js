@@ -26,7 +26,7 @@ export default class Index extends Component {
     const { banner, brands, products_list } = this.props;
     return (
       <View className="home-page">
-        <MySwiper banner={banner} />
+        <MySwiper banner={banner} home />
         <View className="nav-list">
           { brands.map((item, index) => (
             <View className="nav-item" key={index}>

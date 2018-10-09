@@ -1,9 +1,15 @@
 @import "../../styles/mixin";
 
 .swiper-container {
+  width: 100%;
+  min-height: 450px;
+  height: 100%;
+}
+
+.swiper {
   width: 100vw;
   height: 450px;
-  .swiper-img,img {
+  image,img {
     height: 450px!important;
   }
 }

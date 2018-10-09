@@ -1,0 +1,23 @@
+@import "../../styles/mixin";
+
+.size-page {
+  @include wh(100%, 100%);
+  .h1 {
+    text-indent: 70px;
+    margin: 0;
+    width: 100%;
+    height: 170px;
+    line-height: 170px;
+  }
+  .content {
+    padding: 0 20px 0;
+    overflow: hidden;
+    text {
+      font-size: 25px;
+      color: #696969;
+      line-height: 40px;
+      margin-top: 50px;
+      padding: 0 40px;
+    }
+  }
+}

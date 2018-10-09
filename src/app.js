@@ -23,6 +23,9 @@ class App extends Component {
       'pages/user/index',
       'pages/detail/index',
       'pages/about/index',
+      'pages/size/index',
+      'pages/login/index',
+      'pages/invite/index',
     ],
     window: {
       backgroundTextStyle: 'dark',

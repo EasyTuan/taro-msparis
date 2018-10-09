@@ -4,19 +4,28 @@ import PropTypes from 'prop-types';
 import './index.scss';
 
 export default class MySwiper extends Component {
+  constructor() {
+    super(...arguments);
+    this.state = {
+      isH5: typeof window !== 'undefined'
+    }
+  }
+
   static propTypes = {
     banner: PropTypes.array,
+    home: PropTypes.bool,
   };
 
   static defaultProps = {
     banner: [],
+    home: false
   };
 
   render() {
-    const { banner } = this.props;
+    const { banner, home } = this.props;
     return (
       <Swiper
-        className="swiper-container"
+        className={!home ? 'swiper-container' : 'swiper'}
         circular
         indicatorDots
         indicatorColor='#999'
@@ -24,7 +33,7 @@ export default class MySwiper extends Component {
         autoplay>
         { banner.map((item, index) => (
           <SwiperItem key={index}>
-            <Image className="swiper-img" mode="widthFix" src={item.image_src}></Image>
+            <Image mode="widthFix" src={item.image_src}></Image>
           </SwiperItem>
         ))}
       </Swiper>

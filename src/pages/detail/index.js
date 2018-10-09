@@ -1,24 +1,94 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Image, Button } from '@tarojs/components';
-import { connect } from '@tarojs/redux';
+import * as detailApi from './service';
 import MySwiper from '../../components/MySwiper';
 import './index.scss';
 
-@connect(({detail}) => ({
-  ...detail,
-}))
 export default class Detail extends Component {
   config = {
-    navigationBarTitleText: 'detail',
+    navigationBarTitleText: '',
   };
 
-  componentDidMount = () => {
+  constructor() {
+    super(...arguments);
+    this.state = {
+      goodsId: '',
+      detail: {},
+      imageObj: [],
+      goodsdata: [],
+      cartAmount: '',
+      currentChooseId: '',
+      isjoin: false,
+      specificationsList: [],
+      showModal: false,
+      closeModalType: 0,
+      modalContent: '',
+    }
+  }
 
+  componentWillMount = () => {
+    this.setState({
+      goodsId: this.$router.params.id,
+    })
+    this.getGoodsInfo(this.$router.params.id);
   };
 
-  openSize = (e) => {
-    e.stopPropagation();
-    this.props.history.push('/size.html');
+  async getGoodsInfo(goodsId) {
+    const res = await detailApi.getProductInfo({
+      id: goodsId
+    });
+    if (res.status == 'ok') {
+      if (res.data.measurement != null) {
+        res.data.measurement = String(res.data.measurement).split('\n');
+      } else {
+        res.data.measurement = [];
+      }
+      if (res.data.comments.rows) {
+        Array.from(res.data.comments.rows).forEach((item) => {
+          switch (item.fit_score) {
+            case 1:
+              item.fit_text = '尺码偏小';
+              break;
+            case 2:
+              item.fit_text = '尺码正好';
+              break;
+            case 3:
+              item.fit_text = '尺码偏大';
+              break;
+            default:
+              break;
+          }
+          item.satisfied_score = new Array(item.satisfied_score);
+        });
+      }
+      let imgList;
+      if (res.data.image){
+        imgList = res.data.image.map((item) => {
+          return {
+            image_src: item,
+          };
+        });
+      } else {
+        imgList = [{
+          image_src: "http://static-r.msparis.com/uploads/d/1/d1ca37e902e5550ad2c82c721bc216ce.png",
+        }];
+      }
+      Taro.setNavigationBarTitle({
+        title: res.data.name
+      })
+      this.setState({
+        detail: res.data,
+        imageObj: imgList,
+        specificationsList: res.data.specifications,
+      })
+    }
+  }
+
+
+  openSize() {
+    Taro.navigateTo({
+      url: '/pages/size/index',
+    })
   }
 
   join = (e) => {
@@ -53,8 +123,8 @@ export default class Detail extends Component {
     }
   }
 
-  chooseSize = (e, item) => {
-    e.stopPropagation();
+  chooseSize = () => {
+    const item = e.currentTarget.dataset.item
     // 只有has_stock =1 才可以选择尺码,其他都是disable
     if (item.has_stock == 1) {
       // 如果点击当前，则2次点击清空
@@ -78,13 +148,30 @@ export default class Detail extends Component {
   }
 
   shouldShowClothesDetail = () => {
-    const detail = this.props.detail;
+    const detail = this.state.detail;
     return (detail.measurement && detail.measurement.length > 0) || (detail.size_suggestion && detail.size_suggestion != null) || (detail.fabric && detail.fabric != null);
   }
 
-  goToPage = (e, url) => {
-    e.stopPropagation();
-    this.props.history.push(url);
+  goToPage = (e) => {
+    if (typeof window !== 'undefined') {
+      Taro.navigateTo({
+        url: e.currentTarget.dataset.url,
+      })
+    }else {
+      Taro.switchTab({
+        url: e.currentTarget.dataset.url,
+      })
+    }
+  }
+
+  makePhoneCall() {
+    if (typeof window !== 'undefined') {
+      window.location.href = "tel:10086";
+    }else {
+      Taro.makePhoneCall({
+        phoneNumber: '10086'
+      })
+    }
   }
 
   computedStyle = (item) => {
@@ -101,7 +188,7 @@ export default class Detail extends Component {
   }
 
   render() {
-    const { imageObj, detail, goodsdata, cartAmount, currentChooseId, specificationsList } = this.props;
+    const { imageObj, detail, goodsdata, cartAmount, currentChooseId, specificationsList } = this.state;
     return (
       <View className="detail-page">
         <View className="image-box-wrap">
@@ -156,12 +243,13 @@ export default class Detail extends Component {
           */}
           <View className="info-size">
             { specificationsList && specificationsList.length > 0 && specificationsList.map((spe, speIndex) => {
+              console.log(spe);
               return (
                 <View key={speIndex}>
                   { spe && spe.options && spe.options.map((item, index) => (
                     <View key={index}>
                       { spe.name == '中码' ? (
-                        <View className={this.computedStyle(item)} onClick={e => this.chooseSize(e, item)}>
+                        <View className={this.computedStyle(item)} data-item={item} onClick={this.chooseSize}>
                           { item.name == '均码' ? <View>均码</View> : (
                             <View>
                               {spe.name}
@@ -170,7 +258,7 @@ export default class Detail extends Component {
                             </View>
                           )}
                         </View>) : (
-                          <View className={this.computedStyle(item)} onClick={e => this.chooseSize(e, item)}>
+                          <View className={this.computedStyle(item)} data-item={item} onClick={this.chooseSize}>
                             <View className="double">
                               {spe.name}
                               {item.name}
@@ -190,7 +278,7 @@ export default class Detail extends Component {
             })}
           </View>
 
-          <View className="proudct-size-line" onClick={e => this.openSize(e)}>
+          <View className="proudct-size-line" onClick={this.openSize}>
             <View className="clearfix">
               <View className="icon-tag" />
               <View className="text">各国尺码转换表</View>
@@ -215,7 +303,7 @@ export default class Detail extends Component {
           { this.shouldShowClothesDetail() && (
             <View className="goods-info">
               <View className="chapter-head">美衣详情</View>
-              { detail.measurement != '' && detail.measurement.length > 0 && (
+              { detail.measurement != '' && (
                 <View className="detail-info">
                   <View className="head">
                     <Image src={require('../../images/icon/icon32.png')} alt="" />
@@ -275,16 +363,14 @@ export default class Detail extends Component {
                 <View>
                   <View className="fj-name font26">{item.nickname}</View>
                   <View className="fj-tag">
-                    <Commentbar progress={item.satisfied_score} />
+                    {/* <Commentbar progress={item.satisfied_score} /> */}
                     {item.fit_text}
                   </View>
                   <View className="fj-info">{item.comment}</View>
                   <View className="comment-img">
                     {
                       item.images && item.images.map((sub1, subIndex1) => (
-                        <View key={subIndex1}>
-                          <Image className="goods-img" alt="" src={sub1.image_url} />
-                        </View>
+                        <Image key={subIndex1} className="goods-img" mode="widthFix" alt="" src={sub1.image_url} />
                       ))
                     }
                   </View>
@@ -298,9 +384,9 @@ export default class Detail extends Component {
             <View className="goods-info">
               <View className="chapter-head">品牌介绍</View>
               <View className="introduce">
-                <b>{detail.brand}</b>
+                <View className="b">{detail.brand}</View>
                 { /*  <image src="{{detail.brand_logo}}"  alt="" /> */}
-                <i className="iconfont icon-more" />
+                <View className="iconfont icon-more" />
               </View>
               {detail.brand_desc != null && (
                 <View className="light">
@@ -318,17 +404,17 @@ export default class Detail extends Component {
             </View>
             <View className="fj server-ul">
               <View className="server-list">
-                <Image src="http://static-r.msparis.com/uploads/d/6/d646e479e328e9f370462b51fb841e70.png" alt="" />
+                <Image mode="widthFix" src="http://static-r.msparis.com/uploads/d/6/d646e479e328e9f370462b51fb841e70.png" alt="" />
                 <View>每次4件</View>
                 <View>无限换穿</View>
               </View>
               <View className="server-list">
-                <Image src="http://static-r.msparis.com/uploads/1/3/137d9963d13a053a6a81784af1256aa9.png" alt="" />
+                <Image mode="widthFix" src="http://static-r.msparis.com/uploads/1/3/137d9963d13a053a6a81784af1256aa9.png" alt="" />
                 <View>五星洗护</View>
                 <View>往返包邮</View>
               </View>
               <View className="server-list">
-                <Image src="http://static-r.msparis.com/uploads/c/0/c0367921e38cc7fd33f63897b18a86ef.png" alt="" />
+                <Image mode="widthFix" src="http://static-r.msparis.com/uploads/c/0/c0367921e38cc7fd33f63897b18a86ef.png" alt="" />
                 <View>APP一键还衣</View>
                 <View>快递上门</View>
               </View>
@@ -341,25 +427,23 @@ export default class Detail extends Component {
             </View>
             )}
         </View>
-        { /* 推荐列表 */ }
-        {/* <GoodsList list={goodsdata} history={this.props.history} /> */}
         { /* 底部操作栏 */ }
         <View className="detail-bottom-btns">
-          <Button className="nav" onClick={e => this.goToPage(e, '/index.html')}>
+          <Button className="nav" data-url="/pages/home/index" onClick={this.goToPage}>
             <Image className="nav-img" src={require('../../images/tab/home.png')} alt="" />
             首页
           </Button>
-          <Button className="nav">
+          <Button className="nav" onClick={this.makePhoneCall}>
             <Image className="nav-img" src={require('../../images/icon/customerservice.png')} alt="" />
             客服
           </Button>
-          <Button className="nav" onClick={e => this.goToPage(e, '/cart.html')}>
+          <Button className="nav" data-url="/pages/cart/index" onClick={this.goToPage}>
             <Image className="nav-img" src={require('../../images/tab/cart.png')} alt="" />
             衣袋
             { /* cartAmount > 0 && <View className="zan-badge__count">{cartAmount}</View> */ }
             { cartAmount > 0 && <Badge text={cartAmount} className="customBadge" />}
           </Button>
-          <View className={currentChooseId == '' ? 'join join-disabled' : 'join'} onClick={e => this.join(e)}>加入衣袋</View>
+          <View className={currentChooseId == '' ? 'join join-disabled' : 'join'} onClick={this.join}>加入衣袋</View>
         </View>
       </View>
     );
