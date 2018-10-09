@@ -16,7 +16,7 @@ export default (options = { method: 'GET', data: {} }) => {
       ...request_data,
       ...options.data
     },
-    headers: {
+    header: {
       'Content-Type': 'application/json',
     },
     method: options.method.toUpperCase(),
