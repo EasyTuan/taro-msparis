@@ -13,9 +13,9 @@ class GoodsList extends Component {
   };
 
   gotoDetail = (e) => {
-    Taro.navigateTo({
-      url: `/pages/detail/index?id=${e.currentTarget.dataset.id}`,
-    })
+    // Taro.navigateTo({
+    //   url: `/pages/detail/index?id=${e.currentTarget.dataset.id}`,
+    // })
   }
 
   render() {

@@ -54,7 +54,7 @@ export default class User extends Component {
               <Image className="avatar" src={avatar_img} />
             </View>
           </View>
-          <View className="list">
+          {/* <View className="list">
             {
               list && list.map((item, index) => (
                 <View className="item" key={index}>
@@ -64,7 +64,7 @@ export default class User extends Component {
                 </View>
               ))
             }
-          </View>
+          </View> */}
         </View>
         <View className="login">
           <View className="card">
