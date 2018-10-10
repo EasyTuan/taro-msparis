@@ -69,7 +69,7 @@ npm run tep `文件名`
     │   │       ├── index.js           // 页面逻辑
     │   │       ├── index.scss         // 页面样式
     │   │       ├── model.js           // 页面models
-    │   │       └── service.css        // 页面api
+    │   │       └── service.js        // 页面api
     │   ├── styles             // 样式文件
     │   ├── utils              // 常用工具类
     │   ├── app.js             // 入口文件
