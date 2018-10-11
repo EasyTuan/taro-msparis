@@ -402,7 +402,7 @@ export default class Detail extends Component {
               服务说明
               { /* <image className="icon"  alt="" src="../../images/icons/icon35.png" /> */ }
             </View>
-            <View className="fj server-ul">
+            <View className="server-ul">
               <View className="server-list">
                 <Image mode="widthFix" src="http://static-r.msparis.com/uploads/d/6/d646e479e328e9f370462b51fb841e70.png" alt="" />
                 <View>每次4件</View>

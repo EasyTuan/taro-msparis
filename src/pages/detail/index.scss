@@ -2,7 +2,6 @@
 
 .detail-page {
   padding-bottom: 120px;
-  overflow: hidden;
   background-color: #fff;
   .container {
     padding: 0 35px;
@@ -178,7 +177,7 @@
       }
 
       .server-ul {
-        justify-content: space-around;
+        @include fj(space-around);
         text-align: center;
         color: #888;
         image,.taro-img {
@@ -295,9 +294,9 @@
   }
 
   .fj {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 20px;
+    padding-left: 100px;
+    position: relative;
+    margin-bottom: 40px;
     .goods-img {
       margin-top: 10px;
       width: 40%;
@@ -309,6 +308,9 @@
       min-width: 80px;
       min-height: 80px;
       margin-right: 30px;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
     .fj-name {
       font-size: 30px;

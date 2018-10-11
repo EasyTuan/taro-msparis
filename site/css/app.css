@@ -902,7 +902,6 @@ button {
 
 .detail-page {
   padding-bottom: 2.56rem;
-  overflow: hidden;
   background-color: #fff;
 }
 
@@ -1112,6 +1111,8 @@ button {
 }
 
 .detail-page .container .goods-info .server-ul {
+  display: -webkit-flex;
+  display: flex;
   -webkit-justify-content: space-around;
           justify-content: space-around;
   text-align: center;
@@ -1249,11 +1250,9 @@ button {
 }
 
 .detail-page .fj {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: flex-start;
-          justify-content: flex-start;
-  margin-bottom: 0.42667rem;
+  padding-left: 2.13333rem;
+  position: relative;
+  margin-bottom: 0.85333rem;
 }
 
 .detail-page .fj .goods-img {
@@ -1268,6 +1267,9 @@ button {
   min-width: 1.70667rem;
   min-height: 1.70667rem;
   margin-right: 0.64rem;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .detail-page .fj .fj-name {
