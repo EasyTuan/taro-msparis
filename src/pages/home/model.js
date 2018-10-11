@@ -6,6 +6,7 @@ export default {
     banner: [],
     brands: [],
     products_list: [],
+    page: 1,
   },
   effects: {
     * load(_, {call, put}) {
@@ -17,15 +18,17 @@ export default {
         } });
       }
     },
-    * product(_, {call, put}) {
+    * product(_, {call, put, select}) {
+      const { page, products_list } = yield select(state => state.home);
       const { status, data } = yield call(homeApi.product, {
+        page,
         mode: 1,
         type: 0,
         filter: 'sort:recomm|c:330602',
       });
       if (status === 'ok') {
         yield put({ type: 'save',payload: {
-          products_list: data.rows,
+          products_list: page > 1 ? [...products_list,...data.rows] : data.rows,
         } });
       }
     }

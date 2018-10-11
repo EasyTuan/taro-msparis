@@ -91,58 +91,57 @@ export default class Detail extends Component {
     })
   }
 
-  join = (e) => {
-    e.stopPropagation();
-    // 未登陆
-    const access_token = Cookies.get('access_token');
-    if (!access_token) {
-      this.props.history.push('/login.html');
+  //加入衣袋
+  join = () => {
+    if (!Taro.getStorageSync('access_token')) {
+      Taro.navigateTo({
+        url: '/pages/login/index',
+      })
       return;
     }
-    if (this.props.isjoin) {
+    if (this.state.isjoin) {
       return;
     }
-    if (this.props.detail.mode_id == 3 && (this.props.detail.enabled != 1 || this.props.detail.sale_stock == 0)) {
-      Toast.info('商品已售罄');
-      return;
-    }
-    if (this.props.currentChooseId === '') {
-      Toast.info('请选择尺码');
-      return;
-    }
-    if (this.props.detail.enabled == 1) {
-      this.props.dispatch({
-        type: 'goodsDetail/update',
-        payload: {
-          isjoin: true,
-        },
+    if (this.state.detail.mode_id == 3 && (this.state.detail.enabled != 1 || this.state.detail.sale_stock == 0)) {
+      Taro.showToast({
+        title: '商品已售罄',
+        icon: 'none',
       });
-      this.props.dispatch({
-        type: 'goodsDetail/getStock',
+      return;
+    }
+    if (this.state.currentChooseId === '') {
+      Taro.showToast({
+        title: '请选择尺码',
+        icon: 'none',
+      });
+      return;
+    }
+    if (this.state.detail.enabled == 1) {
+      this.setState({
+        isjoin: true,
+      })
+      Taro.showToast({
+        title: '加入失败，衣袋尚未激活～～',
+        icon: 'none',
       });
     }
   }
 
-  chooseSize = () => {
-    const item = e.currentTarget.dataset.item
+  chooseSize = (e) => {
+    const has_stock = e.currentTarget.dataset.has_stock;
+    const id = e.currentTarget.dataset.id;
     // 只有has_stock =1 才可以选择尺码,其他都是disable
-    if (item.has_stock == 1) {
+    if (has_stock == 1) {
       // 如果点击当前，则2次点击清空
-      if (item.id == this.props.currentChooseId) {
-        this.props.dispatch({
-          type: 'goodsDetail/update',
-          payload: {
-            currentChooseId: '',
-          },
-        });
+      if (id == this.state.currentChooseId) {
+        this.setState({
+          currentChooseId: ''
+        })
       } else {
-      // 首次点击，赋值为当前id
-        this.props.dispatch({
-          type: 'goodsDetail/update',
-          payload: {
-            currentChooseId: item.id,
-          },
-        });
+        // 首次点击，赋值为当前id
+        this.setState({
+          currentChooseId: id,
+        })
       }
     }
   }
@@ -166,17 +165,17 @@ export default class Detail extends Component {
 
   makePhoneCall() {
     if (typeof window !== 'undefined') {
-      window.location.href = "tel:10086";
+      window.location.href = "tel:123456";
     }else {
       Taro.makePhoneCall({
-        phoneNumber: '10086'
+        phoneNumber: '123456'
       })
     }
   }
 
   computedStyle = (item) => {
     let str = '';
-    if (item.id == this.props.currentChooseId) {
+    if (item.id == this.state.currentChooseId) {
       str = 'size on';
     } else {
       str = 'size';
@@ -249,7 +248,7 @@ export default class Detail extends Component {
                   { spe && spe.options && spe.options.map((item, index) => (
                     <View key={index}>
                       { spe.name == '中码' ? (
-                        <View className={this.computedStyle(item)} data-item={item} onClick={this.chooseSize}>
+                        <View className={this.computedStyle(item)} data-has_stock={item.has_stock} data-id={item.id} onClick={this.chooseSize}>
                           { item.name == '均码' ? <View>均码</View> : (
                             <View>
                               {spe.name}
@@ -258,7 +257,7 @@ export default class Detail extends Component {
                             </View>
                           )}
                         </View>) : (
-                          <View className={this.computedStyle(item)} data-item={item} onClick={this.chooseSize}>
+                          <View className={this.computedStyle(item)} data-has_stock={item.has_stock} data-id={item.id} onClick={this.chooseSize}>
                             <View className="double">
                               {spe.name}
                               {item.name}

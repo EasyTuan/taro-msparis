@@ -5,7 +5,6 @@ import './index.scss';
 import message_img from '../../images/user/message.png';
 import avatar_img from '../../images/user/avatar.png';
 import coupon_img from '../../images/user/coupon.png';
-import gift_img from '../../images/user/gift.png';
 import deposit_img from '../../images/user/deposit.png';
 
 @connect(({user,common}) => ({
@@ -38,6 +37,48 @@ export default class User extends Component {
     })
   }
 
+  outLogin = () => {
+    if(!this.props.access_token) {
+      Taro.navigateTo({
+        url: '/pages/login/index',
+      })
+      return;
+    }
+    Taro.showModal({
+      content: '是否退出当前账号？'
+    })
+    .then(res => {
+      if (res.confirm) {
+        Taro.removeStorageSync('user_info');
+        Taro.removeStorageSync('access_token');
+        this.props.dispatch({
+          type: 'common/save',
+          payload: {
+            access_token: '',
+            invitation_code: '',
+            mobile: '',
+            nickname: '',
+            new_user: '',
+            is_has_buy_card: '',
+            erroMessage: '',
+          },
+        });
+        this.props.dispatch({
+          type: 'login/save',
+          payload: {
+            access_token: '',
+            invitation_code: '',
+            mobile: '',
+            nickname: '',
+            new_user: '',
+            is_has_buy_card: '',
+            erroMessage: '',
+          },
+        });
+      }
+    })
+  }
+
   render() {
     const { mobile, coupon_number, nickname, list } = this.props;
     return (
@@ -46,25 +87,28 @@ export default class User extends Component {
           <View className="to-login" data-url="/pages/login/index" onClick={this.goPage}>
             <View className="left">
               <View className={mobile ? 'name black' : 'name '}>{ nickname || '请登录 >'}</View>
-              <View className="msg" data-url="/pages/message/index" onClick={this.goToPage}>
-                <Image src={message_img} />
+              <View>
+                <View className="msg" data-url="/pages/message/index" onClick={this.goToPage}>
+                  <Image mode="widthFix" src={message_img} />
+                </View>
+                <View className="msg" onClick={this.outLogin}>
+                  <Image mode="widthFix" src="http://static-r.msparis.com/uploads/9/a/9a00ce9a5953a6813a03ee3324cbad2a.png" />
+                </View>
               </View>
             </View>
             <View className="avatar-container">
               <Image className="avatar" src={avatar_img} />
             </View>
           </View>
-          {/* <View className="list">
-            {
-              list && list.map((item, index) => (
-                <View className="item" key={index}>
-                  <Image mode="widthFix" src={item.img} />
-                  <Text>{item.txt}</Text>
-                  {item.num > 0 && <Icon className="num">{item.num}</Icon>}
-                </View>
-              ))
-            }
-          </View> */}
+          <View className="list">
+            {list && list.map((item, index) => (
+              <View className="item" key={index} data-url={`/pages/order/index?type=${index}`} onClick={this.goToPage}>
+                <Image mode="widthFix" src={item.img} />
+                <Text>{item.txt}</Text>
+                {item.num > 0 && <Icon className="num">{item.num}</Icon>}
+              </View>
+            ))}
+          </View>
         </View>
         <View className="login">
           <View className="card">

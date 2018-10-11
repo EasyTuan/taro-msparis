@@ -19,7 +19,7 @@ class GoodsList extends Component {
   }
 
   render() {
-    const { list } = this.props;
+    const { list, loading } = this.props;
     return (
       <View className="goods-list-container">
         {
@@ -67,6 +67,12 @@ class GoodsList extends Component {
           <View />
         )
       }
+      {loading && (
+        <View className="loadMoreGif">
+          <View className="zan-loading"></View>
+          <View className="text">加载中...</View>
+        </View>
+      )}
       </View>
     );
   }

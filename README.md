@@ -18,7 +18,7 @@
 
 # 技术栈
 
-React + taro + dva
+React + Taro + Dva
 
 ## 项目运行
 
