@@ -48,10 +48,7 @@ export default class Login extends Component {
 
 
   login = () => {
-    this.props.dispatch({
-      type: 'login/save',
-      payload: { mobile: this.props.mobile },
-    });
+    console.log(this.props.mobile, this.props.code)
 
     if (this.props.mobile == '' || this.props.mobile.length != 11 || this.props.code == '' || this.props.code.length != 4) {
       this.showToast('请输入有效的手机号或输入有效验证码！');
@@ -65,18 +62,9 @@ export default class Login extends Component {
         mobile: this.props.mobile,
       },
     });
-
-    this.props.dispatch({
-      type: 'login/init',
-    });
   }
 
   sendSms = () => {
-    this.props.dispatch({
-      type: 'login/save',
-      payload: { mobile: this.props.mobile },
-    });
-
     if (this.props.mobile == '' || this.props.mobile.length != 11) {
       this.showToast('请输入有效的手机号！');
       return false;
@@ -162,10 +150,10 @@ export default class Login extends Component {
         <View className="bgtopWrap">
           <View className="loginWrap">
             <View className="inpuWrapMpblie">
-              <Input type="number" name="mobile" maxLength="11" placeholder="请输入手机号" value={this.props.mobile} onChange={this.getMobile} />
+              <Input type="number" name="mobile" maxLength="11" placeholder="请输入手机号" value={this.props.mobile} onInput={this.getMobile} />
             </View>
             <View className="inpuWrapNumber">
-              <Input type="number" name="code" maxLength="4" placeholder="请输入验证码" value={this.props.code} onChange={this.getCode} />
+              <Input type="number" name="code" maxLength="4" placeholder="请输入验证码" value={this.props.code} onInput={this.getCode} />
               {this.state.sending == 2 && <View className="numberWrap" onClick={this.sendSms}>重新获取</View>}
               {this.state.sending == 1 && <View className="numberWrap">{`${smsTime}秒后重发`}</View>}
               {this.state.sending == 0 && <View className="numberWrap" onClick={this.sendSms}>获取验证码</View>}

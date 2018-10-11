@@ -4,7 +4,7 @@
 
 使用 **Taro**，我们可以只书写一套代码，再通过 **Taro** 的编译工具，将源代码分别编译出可以在不同端（微信小程序、H5、React-Native 等）运行的代码。
 
-该项目基于Taro，构建了一个时装衣橱的项目演示，涉及了一个电商平台完整的业务逻辑和功能点，如果这个项目能驾驭的了，相信大部分公司的其他React项目也就不在话下。
+该项目基于Taro，构建了一个时装衣橱的项目演示，涉及了一个电商平台完整的业务逻辑和功能点，如果这个项目能驾驭的了，相信大部分公司的其他React项目也就不在话下（部分功能由于个人小程序限制，仅在H5端开放）。
 
 如遇网络不佳，请移步[国内镜像加速节点](https://gitee.com/easytuan/taro-msparis)
 
@@ -50,9 +50,18 @@ npm run tep `文件名`
   feature：项目开发分支
 
 
-# 目标功能
+# 目标功能（部分功能由于个人小程序限制，仅在H5端开放）
 
-暂定
+- [x] 美衣列表 -- 完成
+- [x] 美衣详情 -- 完成
+- [x] 登录、注册 -- 完成
+- [x] 个人中心 -- 完成
+- [x] 优惠券 -- 完成
+- [x] 分页加载 -- 开发中
+- [x] 衣袋（购物车） -- 开发中
+- [x] 下单 -- 开发中
+- [x] 收货地址 -- 开发中
+- [x] 会员中心 -- 开发中
 
 # 业务介绍
 
@@ -83,6 +92,21 @@ npm run tep `文件名`
     │   └── index.html
     ├── package.json
     └── template.js            // pages模版快速生成脚本,执行命令 npm run tep `文件名`
+
+## 部分截图展示
+
+### 首页 && 商品详情
+
+<img src="screenshots/1.png" width="375px" height="667px" /> <img src="screenshots/2.png" width="375px" height="667px" />
+
+### 衣袋 && 我的
+
+<img src="screenshots/3.png" width="375px" height="667px" /> <img src="screenshots/4.png" width="375px" height="667px" />
+
+### 登录 && 优惠券
+
+<img src="screenshots/5.png" width="375px" height="667px" /> <img src="screenshots/6.png" width="375px" height="667px" />
+
 
 # 说明
 

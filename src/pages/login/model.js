@@ -97,13 +97,6 @@ export default {
     save(state, { payload: data }) {
       return { ...state, ...data };
     },
-    init(state){
-      const payload = {
-        code: '',
-        invitation_code: '',
-      };
-      return { ...state, ...payload };
-    },
   },
 
 };

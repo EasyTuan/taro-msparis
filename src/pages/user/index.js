@@ -70,11 +70,13 @@ export default class User extends Component {
           <View className="card">
             <View className="type type0">
               <View className="operation">
-                <View className="txt">您还不是会员</View>
-                <View className="btn">
-                  成为会员
-                  <View className="iconfont icon-membership_more"></View>
-                </View>
+                <View className="txt">{mobile ? 'VIP会员用户' : '您还不是会员'}</View>
+                {!mobile && (
+                  <View className="btn" data-url="/pages/login/index" onClick={this.goPage}>
+                    成为会员
+                    <View className="iconfont icon-membership_more"></View>
+                  </View>
+                )}
               </View>
             </View>
           </View>
