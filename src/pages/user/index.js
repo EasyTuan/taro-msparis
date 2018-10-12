@@ -37,7 +37,8 @@ export default class User extends Component {
     })
   }
 
-  outLogin = () => {
+  outLogin = (e) => {
+    e.stopPropagation();
     if(!this.props.access_token) {
       Taro.navigateTo({
         url: '/pages/login/index',

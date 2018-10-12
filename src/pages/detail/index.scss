@@ -74,6 +74,7 @@
       margin: 20px 0;
       overflow-y: hidden;
       overflow-x: auto;
+      -webkit-overflow-scrolling:touch;
       white-space: nowrap;
       font-size: 20px;
       div,view {

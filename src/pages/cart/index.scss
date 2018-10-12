@@ -24,4 +24,67 @@
       font-size: 30px;
     }
   }
+  .isLogin{
+    padding-top: 20px;
+  }
+  .bottom-count {
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0 40px;
+    @include wh(100%, 100px);
+    background: #fff;
+    .fj {
+      @include fj(space-between);
+      align-items: center;
+      font-size: 28px;
+      position: relative;
+      .price {
+        color: $color-primary;
+      }
+      .disabled {
+        color: #999;
+      }
+      .am-button-small {
+        width: 180px;
+        padding: 0;
+      }
+      .info {
+        position: absolute;
+        padding: 0 30px;
+        top: -70px;
+        right: 0;
+        background: #f4e2e2;
+        color: #c17480;
+        font-size: 22px;
+        height: 50px;
+        line-height: 50px;
+        &::before {
+          display: inline-block;
+          content: ' ';
+          position: absolute;
+          bottom: -15px;
+          right: 30px;
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 15px solid #f4e2e2;
+        }
+      }
+    }
+    .cart-btn {
+      background: #ec5d75;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      @include wh(180px, 70px);
+      line-height: 70px;
+      border-radius: 5px;
+      border: none;
+      font-weight: 200;
+      font-size: 30px;
+    }
+  }
 }

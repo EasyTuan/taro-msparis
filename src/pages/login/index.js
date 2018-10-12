@@ -48,13 +48,10 @@ export default class Login extends Component {
 
 
   login = () => {
-    console.log(this.props.mobile, this.props.code)
-
     if (this.props.mobile == '' || this.props.mobile.length != 11 || this.props.code == '' || this.props.code.length != 4) {
       this.showToast('请输入有效的手机号或输入有效验证码！');
       return false;
     }
-
     this.props.dispatch({
       type: 'login/login',
       payload: {

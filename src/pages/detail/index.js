@@ -2,8 +2,12 @@ import Taro, { Component } from '@tarojs/taro';
 import { View, Image, Button } from '@tarojs/components';
 import * as detailApi from './service';
 import MySwiper from '../../components/MySwiper';
+import { connect } from '@tarojs/redux';
 import './index.scss';
 
+@connect(({cart}) => ({
+  ...cart,
+}))
 export default class Detail extends Component {
   config = {
     navigationBarTitleText: '',
@@ -26,7 +30,7 @@ export default class Detail extends Component {
     }
   }
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.setState({
       goodsId: this.$router.params.id,
     })
@@ -92,7 +96,7 @@ export default class Detail extends Component {
   }
 
   //加入衣袋
-  join = () => {
+  join = async () => {
     if (!Taro.getStorageSync('access_token')) {
       Taro.navigateTo({
         url: '/pages/login/index',
@@ -187,7 +191,7 @@ export default class Detail extends Component {
   }
 
   render() {
-    const { imageObj, detail, goodsdata, cartAmount, currentChooseId, specificationsList } = this.state;
+    const { imageObj, detail, cartAmount, currentChooseId, specificationsList } = this.state;
     return (
       <View className="detail-page">
         <View className="image-box-wrap">
@@ -231,15 +235,6 @@ export default class Detail extends Component {
           <View className="code">
             {detail.product_spu}
           </View>
-          { /* 这段是注释掉的 <View className="info-tags">
-            <block wx:for="{{detail.tags}}" wx:key="{{index}}">
-              <View className="tag">{{item.name}}</View>
-              <block wx:if="{{index < detail.tags.length-1}}">
-                <View className="space-line">|</View>
-              </block>
-            </block>
-          </View>
-          */}
           <View className="info-size">
             { specificationsList && specificationsList.length > 0 && specificationsList.map((spe, speIndex) => {
               console.log(spe);
@@ -419,12 +414,6 @@ export default class Detail extends Component {
               </View>
             </View>
           </View>
-          {
-            goodsdata.length > 0 && (
-            <View className="goods-info">
-              <View className="chapter-head">为你推荐</View>
-            </View>
-            )}
         </View>
         { /* 底部操作栏 */ }
         <View className="detail-bottom-btns">
