@@ -8,6 +8,10 @@ export default {
 
   reducers: {
     save(state, { payload }) {
+      Taro.setStorageSync('items',[
+        ...state.items,
+        ...payload.items,
+      ]);
       return { ...state, ...payload };
     },
     deleteClothes(state, { payload }) {
@@ -15,11 +19,16 @@ export default {
       const items = state.items.filter((item) => item.product_id != id);
       // 设置衣袋小红点
       if (items.length > 0) {
+        Taro.setStorageSync('items',[
+          ...state.items,
+          ...payload.items,
+        ]);
         Taro.setTabBarBadge({
           index: 1,
           text: String(items.length),
         })
       }else {
+        Taro.removeStorageSync('items');
         Taro.removeTabBarBadge({
           index: 1,
         })
@@ -27,6 +36,15 @@ export default {
       return { ...state, ...{
         items
       }};
+    },
+    init() {
+      Taro.removeStorageSync('items');
+      Taro.removeTabBarBadge({
+        index: 1,
+      })
+      return {
+        items: []
+      };
     },
   },
 

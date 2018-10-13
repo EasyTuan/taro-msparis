@@ -53,6 +53,9 @@ export default class User extends Component {
         Taro.removeStorageSync('user_info');
         Taro.removeStorageSync('access_token');
         this.props.dispatch({
+          type: 'cart/init',
+        });
+        this.props.dispatch({
           type: 'common/save',
           payload: {
             access_token: '',

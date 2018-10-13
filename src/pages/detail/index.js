@@ -23,7 +23,6 @@ export default class Detail extends Component {
       cartAmount: '',
       currentChooseId: '',
       currentChooseName: '',
-      isjoin: false,
       specificationsList: [],
       showModal: false,
       closeModalType: 0,
@@ -104,9 +103,6 @@ export default class Detail extends Component {
       })
       return;
     }
-    if (this.state.isjoin) {
-      return;
-    }
     if (this.state.detail.mode_id == 3 && (this.state.detail.enabled != 1 || this.state.detail.sale_stock == 0)) {
       Taro.showToast({
         title: '商品已售罄',
@@ -122,10 +118,16 @@ export default class Detail extends Component {
       return;
     }
     if (this.state.detail.enabled == 1) {
-      this.setState({
-        isjoin: true,
-      })
       const { detail, currentChooseId, currentChooseName } = this.state;
+      for (let item of this.props.items) {
+        if (item.product_id == detail.product_master_id) {
+          Taro.showToast({
+            title: '衣袋已存在该美衣~~',
+            icon: 'none',
+          });
+          return;
+        }
+      }
       this.props.dispatch({
         type: 'cart/save',
         payload: {

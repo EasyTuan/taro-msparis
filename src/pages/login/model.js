@@ -46,6 +46,7 @@ export default {
             new_user: res.data.new_user,
             is_has_buy_card: res.data.is_has_buy_card,
             erroMessage: '',
+            code:'',
           },
         });
 
@@ -58,6 +59,7 @@ export default {
             new_user: res.data.new_user,
             is_has_buy_card: res.data.is_has_buy_card,
             erroMessage: '',
+            code: '',
           },
         });
 
