@@ -5,8 +5,9 @@ import MySwiper from '../../components/MySwiper';
 import GoodsList from '../../components/GoodsList';
 import './index.scss';
 
-@connect(({ home, loading }) => ({
+@connect(({ home, cart, loading }) => ({
   ...home,
+  ...cart,
   ...loading,
 }))
 export default class Index extends Component {
@@ -21,6 +22,18 @@ export default class Index extends Component {
     this.props.dispatch({
       type: 'home/product',
     });
+
+    // 设置衣袋小红点
+    if (this.props.items.length > 0) {
+      Taro.setTabBarBadge({
+        index: 1,
+        text: String(this.props.items.length),
+      })
+    }else {
+      Taro.removeTabBarBadge({
+        index: 1,
+      })
+    }
   };
 
   //分享

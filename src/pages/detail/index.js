@@ -22,6 +22,7 @@ export default class Detail extends Component {
       goodsdata: [],
       cartAmount: '',
       currentChooseId: '',
+      currentChooseName: '',
       isjoin: false,
       specificationsList: [],
       showModal: false,
@@ -124,27 +125,44 @@ export default class Detail extends Component {
       this.setState({
         isjoin: true,
       })
+      const { detail, currentChooseId, currentChooseName } = this.state;
+      this.props.dispatch({
+        type: 'cart/save',
+        payload: {
+          items: [...this.props.items, {
+            brand: detail.brand,
+            images: detail.image[0],
+            name: detail.name,
+            product_id: detail.product_master_id,
+            product_price: detail.market_price,
+            specification: currentChooseName,
+            spu: currentChooseId,
+            type: detail.type_id,
+          }]
+        },
+      })
       Taro.showToast({
-        title: '加入失败，衣袋尚未激活～～',
-        icon: 'none',
+        title: '加入衣袋成功',
       });
     }
   }
 
   chooseSize = (e) => {
-    const has_stock = e.currentTarget.dataset.has_stock;
-    const id = e.currentTarget.dataset.id;
+    const { has_stock, id, name } = e.currentTarget.dataset;
     // 只有has_stock =1 才可以选择尺码,其他都是disable
     if (has_stock == 1) {
       // 如果点击当前，则2次点击清空
       if (id == this.state.currentChooseId) {
         this.setState({
-          currentChooseId: ''
+          currentChooseId: '',
+          currentChooseName: ''
         })
       } else {
+        console.log(name);
         // 首次点击，赋值为当前id
         this.setState({
           currentChooseId: id,
+          currentChooseName: name
         })
       }
     }
@@ -191,7 +209,8 @@ export default class Detail extends Component {
   }
 
   render() {
-    const { imageObj, detail, cartAmount, currentChooseId, specificationsList } = this.state;
+    const { imageObj, detail, currentChooseId, specificationsList } = this.state;
+    const { items } = this.props;
     return (
       <View className="detail-page">
         <View className="image-box-wrap">
@@ -243,25 +262,19 @@ export default class Detail extends Component {
                   { spe && spe.options && spe.options.map((item, index) => (
                     <View key={index}>
                       { spe.name == '中码' ? (
-                        <View className={this.computedStyle(item)} data-has_stock={item.has_stock} data-id={item.id} onClick={this.chooseSize}>
+                        <View className={this.computedStyle(item)} data-has_stock={item.has_stock} data-id={item.id} data-name={item.name} onClick={this.chooseSize}>
                           { item.name == '均码' ? <View>均码</View> : (
                             <View>
-                              {spe.name}
-                              {item.value}
-                              号
+                              {`${spe.name}${item.value}号`}
                             </View>
                           )}
                         </View>) : (
                           <View className={this.computedStyle(item)} data-has_stock={item.has_stock} data-id={item.id} onClick={this.chooseSize}>
                             <View className="double">
-                              {spe.name}
-                              {item.name}
-                              号
+                              {`${spe.name}${item.name}号`}
                             </View>
                             <View className="double font">
-                              中码
-                              {item.value}
-                              号
+                              {`中码${item.value}号`}
                             </View>
                           </View>)
                       }
@@ -428,8 +441,7 @@ export default class Detail extends Component {
           <Button className="nav" data-url="/pages/cart/index" onClick={this.goToPage}>
             <Image className="nav-img" src={require('../../images/tab/cart.png')} alt="" />
             衣袋
-            { /* cartAmount > 0 && <View className="zan-badge__count">{cartAmount}</View> */ }
-            { cartAmount > 0 && <Badge text={cartAmount} className="customBadge" />}
+            { items.length > 0 && <View className="zan-badge__count">{items.length}</View> }
           </Button>
           <View className={currentChooseId == '' ? 'join join-disabled' : 'join'} onClick={this.join}>加入衣袋</View>
         </View>

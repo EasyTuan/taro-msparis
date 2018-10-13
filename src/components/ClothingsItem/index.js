@@ -34,7 +34,7 @@ class ClothingsItem extends Component {
                 <View className="title p">{item.brand}</View>
                 <View className="info p">{item.name}</View>
                 <View className="size p">
-                  {`${item.spu} | ${item.specification}`}
+                  {`${item.spu} | ${item.specification || '均码'}`}
                 </View>
               </View>
               <View className="edit">

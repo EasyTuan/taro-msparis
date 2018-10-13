@@ -353,4 +353,28 @@
     top: -3px;
     right: -15px;
   }
+  .zan-badge {
+    position: relative;
+  }
+
+  .zan-badge__count {
+    position: absolute;
+    top: -5px;
+    right: 36px;
+    height: 60px;
+    min-width: 60px;
+    line-height: 60px;
+    font-size: 40px;
+    border-radius: 30px;
+    background: $btn-active;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    transform: translateX(50%) scale(0.5);
+    transform-origin: center;
+    z-index: 10;
+    box-shadow: 0 0 0 2px #fff;
+    box-sizing: border-box;
+  }
 }
+

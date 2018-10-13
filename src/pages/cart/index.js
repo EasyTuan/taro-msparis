@@ -33,12 +33,42 @@ export default class Cart extends Component {
   }
 
   // 删除美衣
-  onDeleteClothing(e) {
-    console.log(e.currentTarget.dataset.id);
+  onDeleteClothing = (e) => {
+    const id = e.currentTarget.dataset.id;
+    Taro.showModal({
+      content: '是否删除该美衣？'
+    })
+    .then(res => {
+      if (res.confirm) {
+        this.props.dispatch({
+          type: 'cart/deleteClothes',
+          payload: {
+            id
+          },
+        });
+      }
+    })
   }
 
   componentDidShow() {
+    // 设置衣袋小红点
+    if (this.props.items.length > 0) {
+      Taro.setTabBarBadge({
+        index: 1,
+        text: String(this.props.items.length),
+      })
+    }else {
+      Taro.removeTabBarBadge({
+        index: 1,
+      })
+    }
+  }
 
+  buy() {
+    Taro.showToast({
+      title: '衣袋尚未激活，下单失败～～',
+      icon: 'none'
+    });
   }
 
   render() {
