@@ -30,7 +30,6 @@ class ClothingsItem extends Component {
                 <Image mode="widthFix" src={`${item.images}!w750`} />
               </View>
               <View className="content">
-                {item.type === 2 && <Tag small style={{ background: '#D87182' }}>VIP</Tag>}
                 <View className="title p">{item.brand}</View>
                 <View className="info p">{item.name}</View>
                 <View className="size p">
