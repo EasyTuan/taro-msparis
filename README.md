@@ -32,7 +32,11 @@ cd taro-msparis
 
 npm install
 
+# 开发时时监听编译小程序
 npm run dev:weapp
+
+# 开发时时监听编译H5
+npm run dev:h5
 
 # pages模版快速生成
 npm run tep `文件名`
@@ -50,7 +54,7 @@ npm run tep `文件名`
   feature：项目开发分支
 
 
-## 目标功能（部分功能由于个人小程序限制，仅在H5端开放）
+## 目标功能
 
 - [x] 美衣列表 -- 完成
 - [x] 美衣详情 -- 完成
