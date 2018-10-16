@@ -379,7 +379,7 @@ export default class Detail extends Component {
                   <View className="comment-img">
                     {
                       item.images && item.images.map((sub1, subIndex1) => (
-                        <Image key={subIndex1} className="goods-img" mode="widthFix" alt="" src={sub1.image_url} />
+                        <Image key={subIndex1} className="goods-img" mode="widthFix" src={sub1.image_url} />
                       ))
                     }
                   </View>

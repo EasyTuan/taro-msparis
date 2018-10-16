@@ -1910,13 +1910,13 @@ button {
   width: calc(100vw - 2.98667rem);
   overflow: hidden;
   overflow-x: auto;
-  display: -webkit-flex;
-  display: flex;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
 }
 
 .detail-page .fj .comment-img .goods-img {
   margin-right: 0.42667rem;
-  width: 30%;
+  width: 28%;
   height: auto;
 }
 

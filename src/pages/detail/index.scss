@@ -323,14 +323,6 @@
       font-size: 24px;
       color: #888;
       line-height: 40px;
-      // .iconfont {
-      //   font-size: 24px;
-      //   margin-right: 6px;
-      //   color: #CCC;
-      // }
-      // .active {
-      //   color: #F26D83;
-      // }
     }
     .fj-info {
       font-size: 28px;
@@ -340,10 +332,11 @@
       width: calc(100vw - 140px);
       overflow: hidden;
       overflow-x: auto;
-      display: flex;
+      -webkit-overflow-scrolling:touch;
+      white-space: nowrap;
       .goods-img {
         margin-right: 20px;
-        width: 30%;
+        width: 28%;
         height: auto;
       }
     }
