@@ -13,7 +13,7 @@ export default class Cart extends Component {
   };
 
   goHome() {
-    if (typeof window !== 'undefined') {
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
       Taro.navigateTo({
         url: '/pages/home/index',
       })
@@ -73,7 +73,7 @@ export default class Cart extends Component {
 
   render() {
     const { items } = this.props;
-    const isH5 = typeof window !== 'undefined';
+    const isH5 = Taro.getEnv() === Taro.ENV_TYPE.WEB;
     return (
       <View className="cart-page">
       {items.length == 0 ? (

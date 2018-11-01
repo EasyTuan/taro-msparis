@@ -4,13 +4,6 @@ import PropTypes from 'prop-types';
 import './index.scss';
 
 export default class MySwiper extends Component {
-  constructor() {
-    super(...arguments);
-    this.state = {
-      isH5: typeof window !== 'undefined'
-    }
-  }
-
   static propTypes = {
     banner: PropTypes.array,
     home: PropTypes.bool,

@@ -176,7 +176,7 @@ export default class Detail extends Component {
   }
 
   goToPage = (e) => {
-    if (typeof window !== 'undefined') {
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
       Taro.navigateTo({
         url: e.currentTarget.dataset.url,
       })
@@ -188,7 +188,7 @@ export default class Detail extends Component {
   }
 
   makePhoneCall() {
-    if (typeof window !== 'undefined') {
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
       window.location.href = "tel:123456";
     }else {
       Taro.makePhoneCall({
