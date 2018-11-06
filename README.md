@@ -28,7 +28,20 @@ cd taro-msparis
 
 npm install
 
+# 微信小程序
 npm run dev:weapp
+
+# 支付宝小程序
+npm run dev:alipay
+
+# 百度小程序
+npm run dev:swan
+
+# H5
+npm run dev:h5
+
+# React Native
+npm run dev:rn
 
 # pages模版快速生成
 npm run tep `文件名`
