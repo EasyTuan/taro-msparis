@@ -33,11 +33,20 @@ cd taro-msparis
 
 npm install
 
-# 开发时时监听编译小程序
+# 微信小程序
 npm run dev:weapp
 
-# 开发时时监听编译H5
+# 支付宝小程序
+npm run dev:alipay
+
+# 百度小程序
+npm run dev:swan
+
+# H5
 npm run dev:h5
+
+# React Native
+npm run dev:rn
 
 # pages模版快速生成
 npm run tep `文件名`
