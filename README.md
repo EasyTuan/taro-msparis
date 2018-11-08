@@ -31,6 +31,10 @@ git clone git@github.com:EasyTuan/taro-msparis.git
 
 cd taro-msparis
 
+# 全局安装taro脚手架
+npm install -g @tarojs/cli
+
+# 安装项目依赖
 npm install
 
 # 微信小程序
