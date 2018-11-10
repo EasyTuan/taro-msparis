@@ -570,7 +570,6 @@ button {
 }
 
 .home-page .nav-list {
-  min-height: 9.17333rem;
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: center;
@@ -1783,14 +1782,6 @@ button {
   padding-right: 7.46667rem;
 }
 
-.detail-page .detail-bottom-btns button {
-  border: none;
-}
-
-.detail-page .detail-bottom-btns button::after {
-  border: none;
-}
-
 .detail-page .detail-bottom-btns .join {
   width: 6.4rem;
   height: 2.09067rem;
@@ -1808,6 +1799,8 @@ button {
 }
 
 .detail-page .detail-bottom-btns .nav {
+  -webkit-flex: 1;
+          flex: 1;
   text-align: center;
   font-size: 0.34133rem;
   position: relative;
@@ -1822,8 +1815,6 @@ button {
   margin: 0 auto;
   width: 1.28rem;
   height: 1.28rem;
-  position: relative;
-  top: 0.29867rem;
 }
 
 .detail-page .text-center {
@@ -1932,7 +1923,7 @@ button {
 
 .detail-page .zan-badge__count {
   position: absolute;
-  top: -0.10667rem;
+  top: -0.32rem;
   right: 0.768rem;
   height: 1.28rem;
   min-width: 1.28rem;
@@ -2096,7 +2087,9 @@ button {
 
 .login-page .button {
   height: 1.70667rem;
-  margin: 0.04267rem auto;
+  line-height: 1.70667rem;
+  padding: 0;
+  margin: 0 auto;
   font-size: 0.68267rem;
   color: #fff;
   background: #333;

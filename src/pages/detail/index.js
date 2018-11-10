@@ -432,19 +432,19 @@ export default class Detail extends Component {
         </View>
         { /* 底部操作栏 */ }
         <View className="detail-bottom-btns">
-          <Button className="nav" data-url="/pages/home/index" onClick={this.goToPage}>
+          <View className="nav" data-url="/pages/home/index" onClick={this.goToPage}>
             <Image className="nav-img" src={require('../../images/tab/home.png')} alt="" />
             首页
-          </Button>
-          <Button className="nav" onClick={this.makePhoneCall}>
+          </View>
+          <View className="nav" onClick={this.makePhoneCall}>
             <Image className="nav-img" src={require('../../images/icon/customerservice.png')} alt="" />
             客服
-          </Button>
-          <Button className="nav" data-url="/pages/cart/index" onClick={this.goToPage}>
+          </View>
+          <View className="nav" data-url="/pages/cart/index" onClick={this.goToPage}>
             <Image className="nav-img" src={require('../../images/tab/cart.png')} alt="" />
             衣袋
             { items.length > 0 && <View className="zan-badge__count">{items.length}</View> }
-          </Button>
+          </View>
           <View className={currentChooseId == '' ? 'join join-disabled' : 'join'} onClick={this.join}>加入衣袋</View>
         </View>
       </View>

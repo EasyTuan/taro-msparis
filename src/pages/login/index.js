@@ -134,7 +134,7 @@ export default class Login extends Component {
 
   render() {
     const { sending, smsTime } = this.props;
-    if (Taro.getEnv() !== Taro.ENV_TYPE.WEB) {
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
       this.setState({
         sending,
         smsTime

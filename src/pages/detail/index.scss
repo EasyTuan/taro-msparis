@@ -223,10 +223,6 @@
     justify-content: flex-start;
     align-items: center;
     padding-right: 350px;
-    button {
-      border: none;
-    }
-    button::after{ border: none; }
     .join {
       width: 300px;
       height: 98px;
@@ -242,6 +238,7 @@
       background: mix(#fff, #F26D83, 70%);
     }
     .nav {
+      flex: 1;
       text-align: center;
       font-size: 16px;
       position: relative;
@@ -254,8 +251,6 @@
         margin: 0 auto;
         width: 60px;
         height: 60px;
-        position: relative;
-        top: 14px;
       }
     }
   }
@@ -352,7 +347,7 @@
 
   .zan-badge__count {
     position: absolute;
-    top: -5px;
+    top: -15px;
     right: 36px;
     height: 60px;
     min-width: 60px;
