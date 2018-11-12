@@ -5,7 +5,8 @@ import './index.scss';
 import message_img from '../../images/user/message.png';
 import avatar_img from '../../images/user/avatar.png';
 import coupon_img from '../../images/user/coupon.png';
-import deposit_img from '../../images/user/deposit.png';
+import about_img from '../../images/user/about.png';
+import address_img from '../../images/user/address.png';
 
 @connect(({user,common}) => ({
   ...user,
@@ -128,6 +129,16 @@ export default class User extends Component {
               </View>
             </View>
           </View>
+          <View className="item" data-url="/pages/addressList/index" onClick={this.goToPage}>
+            <View className="left">
+              <Image className="icon-left" src={address_img} />
+              <Text>收货地址</Text>
+            </View>
+            <View className="right">
+              {coupon_number && <View className="num">{coupon_number}</View>}
+              <View className="iconfont icon-more arrow"></View>
+            </View>
+          </View>
           <View className="item" data-url="/pages/couponList/index" onClick={this.goToPage}>
             <View className="left">
               <Image className="icon-left" src={coupon_img} />
@@ -140,7 +151,7 @@ export default class User extends Component {
           </View>
           <View className="item" data-url="/pages/about/index" onClick={this.goPage}>
             <View className="left">
-              <Image className="icon-left" src={deposit_img} />
+              <Image className="icon-left" src={about_img} />
               <Text>关于</Text>
             </View>
             <View className="right">

@@ -1,0 +1,50 @@
+@import "../../styles/mixin";
+
+.addressUpdate-page {
+  @include wh(100%, 100%);
+  background: white;
+  box-sizing: border-box;
+  padding: 60px;
+
+  .head {
+    font-size: 50px;
+    color: #444;
+    margin-bottom: 64px;
+  }
+
+  .form {
+    input, textarea {
+      font-size: 28px;
+      height: 130px;
+      line-height: 130px;
+      border: none;
+      border-bottom: 1px solid #eee;
+    }
+    .label, .picker-item {
+      font-size: 28px;
+      height: 130px;
+      line-height: 130px;
+      border-bottom: 1px solid #eee;
+      color: #777;
+      @include fj();
+    }
+    .picker-item {
+      color: #444;
+    }
+  }
+  .confirm {
+    margin-top: 100px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 35px;
+    color: $bg-color-panel;
+    @include fj(center);
+    align-items: center;
+    image, .taro-img {
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      margin-right: 6px;
+    }
+  }
+}
