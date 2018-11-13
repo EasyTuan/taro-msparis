@@ -162,6 +162,8 @@ npm run tep `文件名`
 
 如有帮助，欢迎打赏
 
+收到赞助款后，我会及时[更新赞助墙](https://caibowen.net/sponsor)
+
 <img src="screenshots/wechat.jpg" width="200px" /> <img src="screenshots/alipay.jpg" width="200px" />
 
 # License
