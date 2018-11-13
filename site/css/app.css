@@ -1274,7 +1274,6 @@ button {
   width: 9.216rem;
   font-size: 1.45067rem;
   color: #999999;
-  white-space: pre-wrap;
   word-break: break-all;
 }
 
@@ -2431,4 +2430,210 @@ button {
 
 .order-page .empty.card {
   margin-top: 8.74667rem;
+}
+/* colors
+-------------------------- */
+
+/* button-colors
+-------------------------- */
+
+/* 53a8ff */
+
+/* background-colors
+-------------------------- */
+
+/* tag-colors
+-------------------------- */
+
+/* methods
+-------------------------- */
+
+.addressList-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-bottom: 3.62667rem;
+}
+
+.addressList-page .content {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.addressList-page .content .info {
+  padding-left: 1.06667rem;
+  width: 80%;
+  font-size: 0.59733rem;
+  white-space: normal;
+  margin-top: 0.42667rem;
+  margin-bottom: 0.42667rem;
+}
+
+.addressList-page .content .info .contact {
+  margin-bottom: 0.21333rem;
+}
+
+.addressList-page .content .info .contact .name {
+  font-size: 0.64rem;
+  font-weight: bold;
+  margin-right: 0.42667rem;
+}
+
+.addressList-page .content .edit {
+  width: 20%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+
+.addressList-page .content .edit image,
+.addressList-page .content .edit .taro-img {
+  width: 0.85333rem;
+  height: 0.85333rem;
+}
+
+.addressList-page .add {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.56rem;
+  font-size: 0.74667rem;
+  background: #fff;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  color: #EC5D75;
+}
+
+.addressList-page .add image,
+.addressList-page .add .taro-img {
+  width: 0.74667rem;
+  height: 0.74667rem;
+  display: inline-block;
+  margin-right: 0.128rem;
+}
+
+.addressList-page .empty-address {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+.addressList-page .am-list-body .am-list-item:not(:last-child) .am-list-line {
+  border-bottom: none !important;
+}
+
+.addressList-page .am-list-body .am-list-item:not(:last-child) .content {
+  border-bottom: 0.02133rem solid #eee !important;
+}
+
+.addressList-page .am-list-item {
+  padding-left: 0;
+}
+/* colors
+-------------------------- */
+
+/* button-colors
+-------------------------- */
+
+/* 53a8ff */
+
+/* background-colors
+-------------------------- */
+
+/* tag-colors
+-------------------------- */
+
+/* methods
+-------------------------- */
+
+.addressUpdate-page {
+  width: 100%;
+  height: 100%;
+  background: white;
+  box-sizing: border-box;
+  padding: 1.28rem;
+}
+
+.addressUpdate-page .head {
+  font-size: 1.06667rem;
+  color: #444;
+  margin-bottom: 1.36533rem;
+}
+
+.addressUpdate-page .form input,
+.addressUpdate-page .form textarea {
+  width: 100%;
+  padding: 0;
+  font-size: 0.59733rem;
+  height: 2.77333rem;
+  line-height: 2.77333rem;
+  border: none;
+  border-bottom: 0.02133rem solid #eee;
+}
+
+.addressUpdate-page .form .label,
+.addressUpdate-page .form .picker-item {
+  font-size: 0.59733rem;
+  height: 2.77333rem;
+  line-height: 2.77333rem;
+  border-bottom: 0.02133rem solid #eee;
+  color: #777;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+
+.addressUpdate-page .form .picker-item {
+  color: #444;
+}
+
+.addressUpdate-page .bottom-btn {
+  margin-top: 2.13333rem;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+.addressUpdate-page .bottom-btn .confirm {
+  padding: 0.42667rem 0;
+  text-align: center;
+  font-size: 0.74667rem;
+  color: #EC5D75;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+
+.addressUpdate-page .bottom-btn .confirm image,
+.addressUpdate-page .bottom-btn .confirm .taro-img {
+  width: 0.64rem;
+  height: 0.64rem;
+  display: inline-block;
+  margin-right: 0.128rem;
+}
+
+.addressUpdate-page .bottom-btn .remove {
+  color: #444;
+  margin-right: 2.56rem;
 }

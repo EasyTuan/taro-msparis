@@ -24,6 +24,19 @@ export default class Addresslist extends Component {
   };
 
   addressUpdate = ()=> {
+    this.props.dispatch({
+      type: 'addressUpdate/save',
+      payload: {
+        addressId: '',
+        showValue: {
+          region_code: '',
+          region_name: '',
+        },
+        contact_name: '',
+        contact_mobile: '',
+        address_detail: '',
+      },
+    })
     Taro.navigateTo({
       url: '/pages/addressUpdate/index'
     })

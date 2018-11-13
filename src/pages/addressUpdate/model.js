@@ -50,11 +50,11 @@ export default {
         });
       }
     },
-    * submit({ payload }, { select, put, call }) {
+    * submit({ payload }, { select, call }) {
       const { access_token } = yield select(state => state.common);
       const { addressId } = yield select(state => state.addressUpdate);
       const { status } = yield call(addressUpdateApi.updateAddress, {
-        id: addressId,
+        id: addressId && addressId!='' ? addressId : undefined,
         access_token,
         region_code: payload.showValue.region_code,
         region_name: payload.showValue.region_name,
@@ -63,24 +63,32 @@ export default {
         address_detail: payload.address_detail,
       });
       if (status === 'ok') {
-        yield put({
-          type: 'save',
-          payload: {
-            cities: [],
-            districts: [],
-            pickerValue: [0,0,0],
-            showValue: {
-              region_code: '',
-              region_name: '',
-            },
-            contact_name: '',
-            contact_mobile: '',
-            address_detail: '',
-          },
+        Taro.showToast({
+          title: '保存成功',
+          icon: 'none',
         });
-        Taro.navigateBack();
+        setTimeout(()=>{
+          Taro.navigateBack();
+        },1000);
       }
-    }
+    },
+    * removeAddress(_, { put, call, select }) {
+      const { access_token } = yield select(state => state.common);
+      const addressId = yield select(state => state.addressUpdate.addressId);
+      const { status } = yield call(addressUpdateApi.removeAddress, {
+        id: addressId,
+        access_token
+      });
+      if (status === 'ok') {
+        Taro.showToast({
+          title: '删除成功',
+          icon: 'none',
+        });
+        setTimeout(()=>{
+          Taro.navigateBack();
+        },1000);
+      }
+    },
   },
 
   reducers: {

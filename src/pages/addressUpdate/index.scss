@@ -14,6 +14,8 @@
 
   .form {
     input, textarea {
+      width: 100%;
+      padding: 0;
       font-size: 28px;
       height: 130px;
       line-height: 130px;
@@ -32,19 +34,26 @@
       color: #444;
     }
   }
-  .confirm {
+  .bottom-btn {
     margin-top: 100px;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 35px;
-    color: $bg-color-panel;
     @include fj(center);
-    align-items: center;
-    image, .taro-img {
-      width: 30px;
-      height: 30px;
-      display: inline-block;
-      margin-right: 6px;
+    .confirm {
+      padding: 20px 0;
+      text-align: center;
+      font-size: 35px;
+      color: $bg-color-panel;
+      @include fj(center);
+      align-items: center;
+      image, .taro-img {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        margin-right: 6px;
+      }
+    }
+    .remove {
+      color: #444;
+      margin-right: 120px;
     }
   }
 }

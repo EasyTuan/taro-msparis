@@ -13,3 +13,10 @@ export const updateAddress = data => Request({
   method: 'POST',
   data,
 });
+
+// 删除地址
+export const removeAddress = data => Request({
+  url: '/user/address',
+  method: 'DELETE',
+  data,
+});

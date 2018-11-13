@@ -125,6 +125,20 @@ export default class Addressupdate extends Component {
     });
   }
 
+  // 删除地址
+  delete = ()=> {
+    Taro.showModal({
+      content: '是否删除该地址？'
+    })
+    .then(res => {
+      if (res.confirm) {
+        this.props.dispatch({
+          type: 'addressUpdate/removeAddress',
+        });
+      }
+    })
+  }
+
   render() {
     const { addressId, districts, pickerValue, showValue, contact_name, contact_mobile, address_detail } = this.props;
     return (
@@ -168,9 +182,17 @@ export default class Addressupdate extends Component {
           onInput={this.update}
         />
       </View>
-      <View className="confirm" onClick={this.submit}>
-        <Image mode="widthFix" src={require('../../images/icon/check.png')} />
-        <Text>保存</Text>
+      <View className="bottom-btn">
+        {addressId && addressId !== '' && (
+          <View className="confirm remove" onClick={this.delete}>
+            <Image mode="widthFix" src={require('../../images/icon/times.png')} />
+            <Text>删除</Text>
+          </View>
+        )}
+        <View className="confirm" onClick={this.submit}>
+          <Image mode="widthFix" src={require('../../images/icon/check.png')} />
+          <Text>保存</Text>
+        </View>
       </View>
     </View>
     )
