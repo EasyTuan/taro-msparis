@@ -69,6 +69,8 @@ export default class Index extends Component {
             </View>
           ))}
         </View>
+        {/* 流量主广告 */}
+        {Taro.getEnv() === Taro.ENV_TYPE.WEAPP && <ad unit-id="adunit-dc1c0a38156fa412"></ad>}
         <Text className="recommend">为你推荐</Text>
         <GoodsList list={products_list} loading={effects['home/product']} />
       </View>

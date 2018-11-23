@@ -293,6 +293,8 @@ export default class Detail extends Component {
               <View className="text">各国尺码转换表</View>
             </View>
           </View>
+          {/* 流量主广告 */}
+          {Taro.getEnv() === Taro.ENV_TYPE.WEAPP && <ad unit-id="adunit-8b7bfc0fa927b307"></ad>}
           {/* 买手点评 */}
           <View>
             { detail.designer_comment && detail.designer_comment != null && (
