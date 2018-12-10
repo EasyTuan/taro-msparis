@@ -10,7 +10,7 @@
 
 # 效果演示
 
-[查看demo请戳这里](https://ms.caibowen.net/)（请用chrome手机模式预览）
+[查看demo请戳这里](http://ms.caibowen.net/)（请用chrome手机模式预览）
 
 ### H5版 && 微信小程序版
 
