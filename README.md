@@ -32,7 +32,11 @@ git clone git@github.com:EasyTuan/taro-msparis.git
 cd taro-msparis
 
 # 全局安装taro脚手架
-npm install -g @tarojs/cli
+npm install -g @tarojs/cli@1.1.8
+
+# 项目依赖为1.1.8版本，如要升级，请同时升级项目依赖
+# 如用1.1.8版本，请忽略这句
+taro update project
 
 # 安装项目依赖
 npm install
