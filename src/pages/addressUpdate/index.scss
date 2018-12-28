@@ -1,4 +1,4 @@
-@import "../../styles/mixin";
+@import '../../styles/mixin';
 
 .addressUpdate-page {
   @include wh(100%, 100%);
@@ -13,7 +13,8 @@
   }
 
   .form {
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 0;
       font-size: 28px;
@@ -22,7 +23,8 @@
       border: none;
       border-bottom: 1px solid #eee;
     }
-    .label, .picker-item {
+    .label,
+    .picker-item {
       font-size: 28px;
       height: 130px;
       line-height: 130px;
@@ -44,7 +46,8 @@
       color: $bg-color-panel;
       @include fj(center);
       align-items: center;
-      image, .taro-img {
+      image,
+      .taro-img {
         width: 30px;
         height: 30px;
         display: inline-block;

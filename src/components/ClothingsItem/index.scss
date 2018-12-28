@@ -1,4 +1,4 @@
-@import "../../styles/base";
+@import '../../styles/base';
 
 .ClothingsItem-page {
   box-sizing: border-box;
@@ -13,7 +13,7 @@
   .collect {
     background-color: #fff;
     border: 1px dashed #ccc;
-    color: #AAA;
+    color: #aaa;
     font-size: 28px;
     @include wh(100%, 180px);
     @include fj(center);
@@ -26,7 +26,7 @@
     }
     .p {
       width: 100%;
-      color: #CD8E98;
+      color: #cd8e98;
       span {
         display: inline-block;
         font-size: 25px;
@@ -37,10 +37,10 @@
   .lose {
     color: #bbb;
     .size {
-      color: #bbb!important;
+      color: #bbb !important;
     }
     .am-tag {
-      background: #bbb!important;
+      background: #bbb !important;
     }
     .shop-img:after {
       content: '已失效';
@@ -66,7 +66,8 @@
       position: relative;
       height: 100%;
       margin-right: 30px;
-      image,.taro-img {
+      image,
+      .taro-img {
         max-width: 120px;
         width: 120px;
         height: 180px;
@@ -87,7 +88,7 @@
       @include ct();
       right: 0;
       .add-price {
-        color: #CD8E98;
+        color: #cd8e98;
         font-size: 25px;
         .iconfont {
           position: relative;

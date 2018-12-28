@@ -1,14 +1,14 @@
 /* colors
 -------------------------- */
-$color-primary : #D87182 !default;
-$color-dark : #333 !default;
-$color-dark2 : #666 !default;
+$color-primary: #d87182 !default;
+$color-dark: #333 !default;
+$color-dark2: #666 !default;
 $color-light: #888 !default;
 
 /* button-colors
 -------------------------- */
-$btn-active: #F26D83 !default;
-$btn-disabled: #CCC !default;
+$btn-active: #f26d83 !default;
+$btn-disabled: #ccc !default;
 
 $btn-disabled-1: mix(#fff, $btn-active, 70%) !default;
 /* 53a8ff */
@@ -16,15 +16,14 @@ $btn-disabled-1: mix(#fff, $btn-active, 70%) !default;
 /* background-colors
 -------------------------- */
 $bg-color-base: #fff !default;
-$bg-color-light : #f9f9f9 !default; //页面浅灰背景&图片浅灰背景
-$bg-color-danger: #F9EFEF !default; //页面浅红背景&按钮边框
-$bg-color-panel: #EC5D75 !default;
+$bg-color-light: #f9f9f9 !default; //页面浅灰背景&图片浅灰背景
+$bg-color-danger: #f9efef !default; //页面浅红背景&按钮边框
+$bg-color-panel: #ec5d75 !default;
 
 /* tag-colors
 -------------------------- */
-$tag-primary:#D87182 !default;
-$tag-dark:#555 !default;
-
+$tag-primary: #d87182 !default;
+$tag-dark: #555 !default;
 
 /* methods
 -------------------------- */

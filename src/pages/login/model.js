@@ -20,9 +20,9 @@ export default {
   },
 
   effects: {
-    * login(_, { call, put, select }) {
+    *login(_, { call, put, select }) {
       const { code, mobile } = yield select(state => state.login);
-      const res = yield call(login.login, { code, mobile});
+      const res = yield call(login.login, { code, mobile });
       if (res.status == 'ok') {
         const userInfo = {
           access_token: res.data.access_token,
@@ -37,7 +37,8 @@ export default {
         Taro.setStorageSync('user_info', userInfo);
         Taro.setStorageSync('access_token', res.data.access_token);
 
-        yield put({ type: 'common/save',
+        yield put({
+          type: 'common/save',
           payload: {
             access_token: res.data.access_token,
             invitation_code: res.data.invitation_code,
@@ -46,11 +47,12 @@ export default {
             new_user: res.data.new_user,
             is_has_buy_card: res.data.is_has_buy_card,
             erroMessage: '',
-            code:'',
+            code: '',
           },
         });
 
-        yield put({ type: 'save',
+        yield put({
+          type: 'save',
           payload: {
             access_token: res.data.access_token,
             invitation_code: res.data.invitation_code,
@@ -74,23 +76,29 @@ export default {
       }
     },
 
-    * sendSms(_, { call, put, select }) {
+    *sendSms(_, { call, put, select }) {
       const { mobile } = yield select(state => state.login);
       const res = yield call(login.getSms, { mobile });
       if (res.status == 'ok') {
         yield put({ type: 'save', payload: { sending: 1, erroMessage: '' } });
       } else {
-        yield put({ type: 'save', payload: { sending: 2, erroMessage: res.error && res.error.message } });
+        yield put({
+          type: 'save',
+          payload: { sending: 2, erroMessage: res.error && res.error.message },
+        });
       }
     },
 
-    * sendSmsVoice(_, { call, put, select }) {
+    *sendSmsVoice(_, { call, put, select }) {
       const { mobile } = yield select(state => state.login);
       const res = yield call(login.getSmsVoice, { mobile });
       if (res.status == 'ok') {
         yield put({ type: 'save', payload: { sending: 1, erroMessage: '' } });
       } else {
-        yield put({ type: 'save', payload: { sending: 2, erroMessage: res.error && res.error.message } });
+        yield put({
+          type: 'save',
+          payload: { sending: 2, erroMessage: res.error && res.error.message },
+        });
       }
     },
   },
@@ -100,5 +108,4 @@ export default {
       return { ...state, ...data };
     },
   },
-
 };

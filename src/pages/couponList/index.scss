@@ -1,4 +1,4 @@
-@import "../../styles/mixin";
+@import '../../styles/mixin';
 
 .couponList-page {
   @include wh(100%, 100%);
@@ -44,24 +44,24 @@
         margin-top: 15px;
       }
       .so-small {
-        display:inline-block;
+        display: inline-block;
         margin: 0;
         padding: 0;
         width: 120px;
-        position:relative;
-        color:#333;
-        background-color:#fff;
-        margin-bottom:10px;
-        padding-left:30px;
-        padding-right:30px;
-        border-radius:4px;
-        font-size:24px;
-        line-height:60px;
-        height:60px;
-        box-sizing:border-box;
-        text-decoration:none;
-        text-align:center;
-        vertical-align:middle;
+        position: relative;
+        color: #333;
+        background-color: #fff;
+        margin-bottom: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 4px;
+        font-size: 24px;
+        line-height: 60px;
+        height: 60px;
+        box-sizing: border-box;
+        text-decoration: none;
+        text-align: center;
+        vertical-align: middle;
       }
     }
     .coupon-option {
@@ -80,7 +80,8 @@
     }
   }
   .no-coupon {
-    image,.taro-img {
+    image,
+    .taro-img {
       width: 60%;
       display: block;
       margin: 0 auto;

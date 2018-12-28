@@ -1,27 +1,28 @@
-@import "../../styles/mixin";
+@import '../../styles/mixin';
 
 .login-page {
   @include wh(100%, 100%);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  font-family: "PingFangSC-Light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  background: #FFF;
-  a{
+  font-family: 'PingFangSC-Light', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  background: #fff;
+  a {
     text-decoration: none;
     display: block;
   }
-  a:active{
+  a:active {
     text-decoration: none;
     display: block;
   }
-  a:visited{
+  a:visited {
     text-decoration: none;
     display: block;
   }
-  .top-space{
+  .top-space {
     height: 20px;
   }
-  .title{
+  .title {
     margin-top: 80px;
     text-align: left;
     font-weight: 600;
@@ -29,23 +30,23 @@
     padding-left: 40px;
     font-size: 48px;
   }
-  .title-des{
+  .title-des {
     font-size: 24px;
     padding-left: 40px;
     line-height: 48px;
   }
-  .see-des{
+  .see-des {
     text-align: center;
     color: #333;
     font-size: 24px;
     line-height: 32px;
     font-weight: 200;
     padding-top: 20px;
-    span{
+    span {
       font-weight: 600;
     }
   }
-  .button{
+  .button {
     height: 80px;
     line-height: 80px;
     padding: 0;
@@ -62,33 +63,36 @@
     color: #999;
     font-size: 28px;
   }
-  input:-ms-input-placeholder { // IE10+
+  input:-ms-input-placeholder {
+    // IE10+
     color: #999;
     font-size: 28px;
   }
-  input:-moz-placeholder { // Firefox4-18
+  input:-moz-placeholder {
+    // Firefox4-18
     color: #999;
     font-size: 28px;
   }
-  input::-moz-placeholder { // Firefox19+
+  input::-moz-placeholder {
+    // Firefox19+
     color: #999;
     font-size: 28px;
   }
-  .bgtopWrap{
+  .bgtopWrap {
     width: 750px;
-    background: #FFFFFF;
+    background: #ffffff;
     background-size: 100%;
     overflow: hidden;
     margin-top: 180px;
   }
-  .loginWrap{
+  .loginWrap {
     margin: 0px auto 0 auto;
     border-radius: 10px;
     padding: 30px 40px 30px 40px;
     overflow: hidden;
     position: relative;
   }
-  .inpuWrapMpblie{
+  .inpuWrapMpblie {
     height: 80px;
     margin: 20px auto 0px auto;
     overflow: hidden;
@@ -98,8 +102,8 @@
       height: 80px;
       font-size: 28px;
       width: 100%;
-      outline:0;
-      background-color:transparent;
+      outline: 0;
+      background-color: transparent;
       -webkit-appearance: none;
       overflow: hidden;
       padding: 0 0 0 20px;
@@ -109,7 +113,7 @@
     }
   }
 
-  .inpuWrapNumber{
+  .inpuWrapNumber {
     height: 80px;
     margin: 20px 0 0px 0;
     position: relative;
@@ -119,8 +123,8 @@
       width: 275px;
       height: 80px;
       font-size: 28px;
-      outline:0;
-      background-color:transparent;
+      outline: 0;
+      background-color: transparent;
       -webkit-appearance: none;
       overflow: hidden;
       padding: 0 0 0 20px;
@@ -132,35 +136,35 @@
     }
   }
 
-  .numberWrap{
+  .numberWrap {
     width: 198px;
     height: 74px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
     font-size: 28px;
     border-radius: 6px;
     text-align: center;
     line-height: 74px;
     float: right;
     margin-left: 20px;
-    background: #FFF;
-    color: #D64761;
+    background: #fff;
+    color: #d64761;
   }
 
-  .erroMessage{
+  .erroMessage {
     position: absolute;
     font-size: 16px;
     color: #666;
     text-align: center;
-    top:220px;
+    top: 220px;
     right: 120px;
     height: 24px;
   }
-  .am-toast .am-toast-notice-content .am-toast-text{
+  .am-toast .am-toast-notice-content .am-toast-text {
     padding: 15px;
-    font-size: 18px!important;
-    border-radius: 10px!important;
+    font-size: 18px !important;
+    border-radius: 10px !important;
   }
-  .copyright{
+  .copyright {
     text-align: center;
     font-size: 16px;
     line-height: 40px;

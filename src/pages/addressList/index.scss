@@ -1,4 +1,4 @@
-@import "../../styles/mixin";
+@import '../../styles/mixin';
 
 .addressList-page {
   min-height: 100vh;
@@ -28,7 +28,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      image, .taro-img {
+      image,
+      .taro-img {
         width: 40px;
         height: 40px;
       }
@@ -47,7 +48,8 @@
     align-items: center;
     justify-content: center;
     color: $bg-color-panel;
-    image, .taro-img {
+    image,
+    .taro-img {
       width: 35px;
       height: 35px;
       display: inline-block;

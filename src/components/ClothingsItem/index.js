@@ -4,27 +4,25 @@ import PropTypes from 'prop-types';
 import './index.scss';
 
 class ClothingsItem extends Component {
-  static propTypes ={
+  static propTypes = {
     clothing: PropTypes.array,
     deleteClothing: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     clothing: [],
-    deleteClothing: function(){
-
-    },
+    deleteClothing: function() {},
   };
 
   render() {
     const { clothing, onDeleteClothing } = this.props;
     return (
       <View className="ClothingsItem-page">
-        <View className="WhiteSpace"></View>
-        <View className="hr"></View>
+        <View className="WhiteSpace" />
+        <View className="hr" />
         {clothing.map(item => (
           <View key={item.product_id}>
-            <View className="WhiteSpace"></View>
+            <View className="WhiteSpace" />
             <View className="clothing">
               <View className="shop-img">
                 <Image mode="widthFix" src={`${item.images}!w750`} />
@@ -37,11 +35,15 @@ class ClothingsItem extends Component {
                 </View>
               </View>
               <View className="edit">
-                <View className="iconfont icon-delete" data-id={item.product_id} onClick={onDeleteClothing} />
+                <View
+                  className="iconfont icon-delete"
+                  data-id={item.product_id}
+                  onClick={onDeleteClothing}
+                />
               </View>
             </View>
-            <View className="WhiteSpace"></View>
-            <View className="hr"></View>
+            <View className="WhiteSpace" />
+            <View className="hr" />
           </View>
         ))}
       </View>

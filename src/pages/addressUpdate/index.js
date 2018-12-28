@@ -3,10 +3,10 @@ import { View, Input, Image, Text, Picker } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
 import './index.scss';
 
-@connect(({addressUpdate}) => ({
+@connect(({ addressUpdate }) => ({
   ...addressUpdate,
 }))
-export default class Addressupdate extends Component {
+class Addressupdate extends Component {
   config = {
     navigationBarTitleText: '',
   };
@@ -21,8 +21,8 @@ export default class Addressupdate extends Component {
   };
 
   // picker选择数据动态渲染
-  onColumnchange = (e) => {
-    const { column, value} = e.detail;
+  onColumnchange = e => {
+    const { column, value } = e.detail;
     const { cities, districts } = this.props;
     const arr = JSON.parse(JSON.stringify(districts));
     if (column == 0) {
@@ -32,13 +32,13 @@ export default class Addressupdate extends Component {
         arr[1].push({
           key: item.key,
           name: item.name,
-        })
+        });
       });
       cities[value].cities[0].regions.forEach(item => {
         arr[2].push({
           key: item.key,
           name: item.name,
-        })
+        });
       });
     }
     if (column == 1) {
@@ -47,7 +47,7 @@ export default class Addressupdate extends Component {
         arr[2].push({
           key: item.key,
           name: item.name,
-        })
+        });
       });
     }
     this.props.dispatch({
@@ -55,11 +55,11 @@ export default class Addressupdate extends Component {
       payload: {
         districts: arr,
       },
-    })
-  }
+    });
+  };
 
   // picker赋值
-  onChange = (e)=> {
+  onChange = e => {
     const { value } = e.detail;
     const { cities } = this.props;
     const detail = cities[value[0]].cities[value[1]].regions[value[2]];
@@ -70,22 +70,27 @@ export default class Addressupdate extends Component {
         showValue: {
           region_code: detail.key,
           region_name: detail.fullname,
-        }
+        },
       },
-    })
-  }
+    });
+  };
 
-  update = (event) => {
+  update = event => {
     const { value, id } = event.target;
     this.props.dispatch({
       type: 'addressUpdate/save',
       payload: { [id]: value },
     });
-  }
+  };
 
   // 保存提交
   submit = () => {
-    const { showValue, contact_name, contact_mobile, address_detail } = this.props;
+    const {
+      showValue,
+      contact_name,
+      contact_mobile,
+      address_detail,
+    } = this.props;
     if (contact_name === '') {
       Taro.showToast({
         title: '请输入收货人',
@@ -120,81 +125,103 @@ export default class Addressupdate extends Component {
         showValue,
         contact_name,
         contact_mobile,
-        address_detail
+        address_detail,
       },
     });
-  }
+  };
 
   // 删除地址
-  delete = ()=> {
+  delete = () => {
     Taro.showModal({
-      content: '是否删除该地址？'
-    })
-    .then(res => {
+      content: '是否删除该地址？',
+    }).then(res => {
       if (res.confirm) {
         this.props.dispatch({
           type: 'addressUpdate/removeAddress',
         });
       }
-    })
-  }
+    });
+  };
 
   render() {
-    const { addressId, districts, pickerValue, showValue, contact_name, contact_mobile, address_detail } = this.props;
+    const {
+      addressId,
+      districts,
+      pickerValue,
+      showValue,
+      contact_name,
+      contact_mobile,
+      address_detail,
+    } = this.props;
     return (
       <View className="addressUpdate-page">
-      <View className="head">{addressId && addressId !== '' ? '编辑地址' : '添加地址'}</View>
-      <View className="form">
-        <Input
-          placeholder="收件人"
-          id="contact_name"
-          value={contact_name}
-          onInput={this.update}
-        />
-        <Input
-          type="number"
-          maxLength="11"
-          placeholder="手机号码"
-          id="contact_mobile"
-          value={contact_mobile}
-          onInput={this.update}
-        />
-        <Picker className="picker" mode="multiSelector" rangeKey="name" range={districts}
-          onColumnchange={this.onColumnchange}
-          onChange={this.onChange}
-          value={pickerValue}>
-          {showValue.region_name == '' ? (
-            <View className="label">
-              省、市、区
-              <View className="iconfont icon-more arrow"></View>
-            </View>
-          ) : (
-            <View className="picker-item">
-              {showValue.region_name}
-              <View className="iconfont icon-more arrow"></View>
+        <View className="head">
+          {addressId && addressId !== '' ? '编辑地址' : '添加地址'}
+        </View>
+        <View className="form">
+          <Input
+            placeholder="收件人"
+            id="contact_name"
+            value={contact_name}
+            onInput={this.update}
+          />
+          <Input
+            type="number"
+            maxLength="11"
+            placeholder="手机号码"
+            id="contact_mobile"
+            value={contact_mobile}
+            onInput={this.update}
+          />
+          <Picker
+            className="picker"
+            mode="multiSelector"
+            rangeKey="name"
+            range={districts}
+            onColumnchange={this.onColumnchange}
+            onChange={this.onChange}
+            value={pickerValue}
+          >
+            {showValue.region_name == '' ? (
+              <View className="label">
+                省、市、区
+                <View className="iconfont icon-more arrow" />
+              </View>
+            ) : (
+              <View className="picker-item">
+                {showValue.region_name}
+                <View className="iconfont icon-more arrow" />
+              </View>
+            )}
+          </Picker>
+          <Input
+            placeholder="详细地址"
+            id="address_detail"
+            value={address_detail}
+            onInput={this.update}
+          />
+        </View>
+        <View className="bottom-btn">
+          {addressId && addressId !== '' && (
+            <View className="confirm remove" onClick={this.delete}>
+              <Image
+                mode="widthFix"
+                src={require('../../images/icon/times.png')}
+              />
+              <Text>删除</Text>
             </View>
           )}
-        </Picker>
-        <Input
-          placeholder="详细地址"
-          id="address_detail"
-          value={address_detail}
-          onInput={this.update}
-        />
-      </View>
-      <View className="bottom-btn">
-        {addressId && addressId !== '' && (
-          <View className="confirm remove" onClick={this.delete}>
-            <Image mode="widthFix" src={require('../../images/icon/times.png')} />
-            <Text>删除</Text>
+          <View className="confirm" onClick={this.submit}>
+            <Image
+              mode="widthFix"
+              src={require('../../images/icon/check.png')}
+            />
+            <Text>保存</Text>
           </View>
-        )}
-        <View className="confirm" onClick={this.submit}>
-          <Image mode="widthFix" src={require('../../images/icon/check.png')} />
-          <Text>保存</Text>
         </View>
       </View>
-    </View>
-    )
+    );
   }
 }
+
+export default Addressupdate;

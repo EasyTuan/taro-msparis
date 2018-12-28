@@ -1,4 +1,4 @@
-@import "../../styles/mixin";
+@import '../../styles/mixin';
 
 .cart-page {
   @include wh(100%, 100%);
@@ -9,7 +9,8 @@
     @include wh(100%, 100%);
     background: #fff;
     text-align: center;
-    .taro-img,image {
+    .taro-img,
+    image {
       @include wh(162px, 172px);
       margin: 45% auto 80px auto;
     }
@@ -24,7 +25,7 @@
       font-size: 30px;
     }
   }
-  .isLogin{
+  .isLogin {
     padding-top: 20px;
     padding-bottom: 150px;
   }

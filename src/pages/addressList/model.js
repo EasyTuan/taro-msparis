@@ -7,14 +7,18 @@ export default {
   },
 
   effects: {
-    * getAddressList(_, { call, put, select }) {
+    *getAddressList(_, { call, put, select }) {
       const { access_token } = yield select(state => state.common);
-      const { status, data } = yield call(addressListApi.getAddressList, {access_token});
+      const { status, data } = yield call(addressListApi.getAddressList, {
+        access_token,
+      });
       if (status === 'ok') {
-        yield put({ type: 'save',
+        yield put({
+          type: 'save',
           payload: {
             addressList: data.rows,
-          } });
+          },
+        });
       }
     },
   },
@@ -24,5 +28,4 @@ export default {
       return { ...state, ...payload };
     },
   },
-
 };

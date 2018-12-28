@@ -1,10 +1,11 @@
-@import "../../styles/mixin";
+@import '../../styles/mixin';
 
 .user-page {
   @include wh(100%, 100%);
   padding: 0 45px;
   box-sizing: border-box;
-  .taro-img,image {
+  .taro-img,
+  image {
     height: 100%;
   }
   .not-login {
@@ -22,7 +23,7 @@
           width: 432px;
           font-size: 68px;
           color: #999999;
-          word-break:break-all;
+          word-break: break-all;
           &.black {
             color: #000000;
           }
@@ -54,7 +55,7 @@
       width: 660px;
       height: 150px;
       margin: 0 auto;
-      background: #F9F9F9;
+      background: #f9f9f9;
       border-radius: 10px;
       .item {
         width: 120px;
@@ -67,15 +68,17 @@
         .taro-img {
           height: auto;
         }
-        img,image {
+        img,
+        image {
           width: 60px;
           object-fit: contain;
           margin: 0 auto;
         }
-        span,text {
+        span,
+        text {
           margin-top: 10px;
           color: #666666;
-          font-size:22px;
+          font-size: 22px;
         }
         i.num {
           min-width: 32px;
@@ -84,7 +87,7 @@
           font-size: 18px;
           text-align: center;
           color: #ffffff;
-          background: #EC5D75;
+          background: #ec5d75;
           border-radius: 16px;
           padding: 0 10px;
           box-sizing: border-box;
@@ -101,19 +104,22 @@
       padding: 40px 0;
       border-bottom: 2px solid #eeeeee;
       .type {
-        background-image: linear-gradient(-90deg, #E2868B 0%, #E5C1C1 97%);
+        background-image: linear-gradient(-90deg, #e2868b 0%, #e5c1c1 97%);
         border-radius: 10px;
         height: 190px;
         &.type0 {
-          background: url('http://static-r.msparis.com/uploads/e/3/e3fe0890238d2f11947909936b020203.png') center no-repeat;
+          background: url('http://static-r.msparis.com/uploads/e/3/e3fe0890238d2f11947909936b020203.png')
+            center no-repeat;
           background-size: contain;
         }
         &.type1 {
-          background: url('http://static-r.msparis.com/uploads/5/c/5ca682fe16bd0f0f6a24fd963a7494ee.png') center no-repeat;
+          background: url('http://static-r.msparis.com/uploads/5/c/5ca682fe16bd0f0f6a24fd963a7494ee.png')
+            center no-repeat;
           background-size: contain;
         }
         &.type2 {
-          background: url('http://static-r.msparis.com/uploads/b/6/b682e817f2283d369b93c3bda2077f7f.png') center no-repeat;
+          background: url('http://static-r.msparis.com/uploads/b/6/b682e817f2283d369b93c3bda2077f7f.png')
+            center no-repeat;
           background-size: contain;
         }
         .operation {
@@ -128,7 +134,8 @@
             color: #ffffff;
             text-align: center;
             font-size: 28px;
-            span,text {
+            span,
+            text {
               font-size: 28px;
               margin-right: 10px;
             }
@@ -141,7 +148,7 @@
             border-radius: 100px;
             background: #ffffff;
             font-size: 26px;
-            color: #E2868B;
+            color: #e2868b;
             padding-left: 36px;
             margin-top: 10px;
             box-sizing: border-box;
@@ -159,7 +166,8 @@
       align-items: center;
       height: 100px;
       border-bottom: 2px solid #eeeeee;
-      .taro-img,image {
+      .taro-img,
+      image {
         width: 40px;
         height: 40px;
         object-fit: contain;
@@ -168,7 +176,8 @@
         display: flex;
         align-items: center;
         line-height: 100%;
-        span,text {
+        span,
+        text {
           margin-left: 20px;
           white-space: nowrap;
         }
@@ -182,7 +191,7 @@
           font-size: 18px;
           text-align: center;
           color: #ffffff;
-          background: #EC5D75;
+          background: #ec5d75;
           border-radius: 20px;
           padding: 6px 12px;
           box-sizing: border-box;

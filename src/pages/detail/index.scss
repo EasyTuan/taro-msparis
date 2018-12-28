@@ -1,4 +1,4 @@
-@import "../../styles/mixin";
+@import '../../styles/mixin';
 
 .detail-page {
   padding-bottom: 120px;
@@ -31,11 +31,12 @@
     .product_name {
       font-size: 36px;
       color: #444;
-      div,view {
+      div,
+      view {
         font-size: 27px;
         color: #fff;
         display: inline-block;
-        background: #D87182;
+        background: #d87182;
         padding: 3px 6px;
         position: relative;
         top: -4px;
@@ -56,7 +57,7 @@
         font-size: 26px;
         line-height: 36px;
         overflow: hidden;
-        color: #CB939D;
+        color: #cb939d;
       }
       .space-line {
         display: inline-block;
@@ -65,7 +66,7 @@
         font-size: 26px;
         line-height: 36px;
         overflow: hidden;
-        color: #CB939D;
+        color: #cb939d;
       }
     }
     .info-size {
@@ -74,10 +75,11 @@
       margin: 20px 0;
       overflow-y: hidden;
       overflow-x: auto;
-      -webkit-overflow-scrolling:touch;
+      -webkit-overflow-scrolling: touch;
       white-space: nowrap;
       font-size: 20px;
-      div,view {
+      div,
+      view {
         display: inline-block;
       }
       .size {
@@ -166,7 +168,7 @@
         }
         image {
           width: auto;
-          height: 90px!important;
+          height: 90px !important;
         }
       }
       .light {
@@ -181,7 +183,8 @@
         @include fj(space-around);
         text-align: center;
         color: #888;
-        image,.taro-img {
+        image,
+        .taro-img {
           width: 150px;
           height: auto;
           display: inline-block;
@@ -190,7 +193,8 @@
       }
       .detail-info {
         margin-bottom: 14px;
-        div,view {
+        div,
+        view {
           color: #888;
           font-size: 24px;
           line-height: 1.8;
@@ -198,7 +202,8 @@
         .head {
           font-size: 30px;
           margin-bottom: 20px;
-          image,.taro-img {
+          image,
+          .taro-img {
             display: inline-block;
             width: 42px;
             height: 42px;
@@ -228,14 +233,14 @@
       height: 98px;
       font-size: 34px;
       color: #fff;
-      background: #F26D83;
+      background: #f26d83;
       line-height: 98px;
       text-align: center;
       position: absolute;
       right: 0;
     }
     .join-disabled {
-      background: mix(#fff, #F26D83, 70%);
+      background: mix(#fff, #f26d83, 70%);
     }
     .nav {
       flex: 1;
@@ -284,7 +289,7 @@
   }
 
   .zan-capsule__center {
-    background: #555!important;
+    background: #555 !important;
     border: 1px solid #555;
     margin-left: 4px;
   }
@@ -297,7 +302,7 @@
       margin-top: 10px;
       width: 40%;
     }
-    >.fj-img {
+    > .fj-img {
       display: inline-block;
       width: 80px;
       height: 80px;
@@ -327,7 +332,7 @@
       width: calc(100vw - 140px);
       overflow: hidden;
       overflow-x: auto;
-      -webkit-overflow-scrolling:touch;
+      -webkit-overflow-scrolling: touch;
       white-space: nowrap;
       .goods-img {
         margin-right: 20px;
@@ -365,4 +370,3 @@
     box-sizing: border-box;
   }
 }
-

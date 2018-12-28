@@ -5,10 +5,10 @@ import './index.scss';
 
 let setIntervalTime = null;
 
-@connect(({login}) => ({
+@connect(({ login }) => ({
   ...login,
 }))
-export default class Login extends Component {
+class Login extends Component {
   config = {
     navigationBarTitleText: '登录',
   };
@@ -30,25 +30,29 @@ export default class Login extends Component {
     };
   }
 
-  getMobile = (event) => {
+  getMobile = event => {
     const value = event.target.value;
     this.props.dispatch({
       type: 'login/save',
       payload: { mobile: value },
     });
-  }
+  };
 
-  getCode = (event) => {
+  getCode = event => {
     const value = event.target.value;
     this.props.dispatch({
       type: 'login/save',
       payload: { code: value },
     });
-  }
-
+  };
 
   login = () => {
-    if (this.props.mobile == '' || this.props.mobile.length != 11 || this.props.code == '' || this.props.code.length != 4) {
+    if (
+      this.props.mobile == '' ||
+      this.props.mobile.length != 11 ||
+      this.props.code == '' ||
+      this.props.code.length != 4
+    ) {
       this.showToast('请输入有效的手机号或输入有效验证码！');
       return false;
     }
@@ -59,7 +63,7 @@ export default class Login extends Component {
         mobile: this.props.mobile,
       },
     });
-  }
+  };
 
   sendSms = () => {
     if (this.props.mobile == '' || this.props.mobile.length != 11) {
@@ -67,19 +71,21 @@ export default class Login extends Component {
       return false;
     }
 
-    this.props.dispatch({
-      type: 'login/sendSms',
-      payload: {
-        mobile: this.props.mobile,
-      },
-    }).then(() => {
-      this.setIntervalTime();
-      if (this.props.erroMessage && this.props.erroMessage != '') {
-        clearInterval(setIntervalTime);
-        this.showToast(this.props.erroMessage);
-      }
-    });
-  }
+    this.props
+      .dispatch({
+        type: 'login/sendSms',
+        payload: {
+          mobile: this.props.mobile,
+        },
+      })
+      .then(() => {
+        this.setIntervalTime();
+        if (this.props.erroMessage && this.props.erroMessage != '') {
+          clearInterval(setIntervalTime);
+          this.showToast(this.props.erroMessage);
+        }
+      });
+  };
 
   setIntervalTime = () => {
     clearInterval(setIntervalTime);
@@ -91,7 +97,10 @@ export default class Login extends Component {
         payload: { sending: 1, smsTime: numConst },
       });
 
-      if (numConst == 0 || (this.props.erroMessage && this.props.erroMessage != '')) {
+      if (
+        numConst == 0 ||
+        (this.props.erroMessage && this.props.erroMessage != '')
+      ) {
         clearInterval(setIntervalTime);
         this.props.dispatch({
           type: 'login/save',
@@ -99,7 +108,7 @@ export default class Login extends Component {
         });
       }
     }, 1000);
-  }
+  };
 
   // tips
   showToast(text) {
@@ -116,29 +125,31 @@ export default class Login extends Component {
       return false;
     }
 
-    this.props.dispatch({
-      type: 'login/sendSmsVoice',
-      payload: {
-        mobile: this.props.mobile,
-      },
-    }).then(() => {
-      this.setIntervalTime();
-      if (this.props.erroMessage && this.props.erroMessage != '') {
-        clearInterval(setIntervalTime);
-        this.showToast(this.props.erroMessage);
-      } else {
-        this.showToast("电话拨打中...请留意相关电话");
-      }
-    });
-  }
+    this.props
+      .dispatch({
+        type: 'login/sendSmsVoice',
+        payload: {
+          mobile: this.props.mobile,
+        },
+      })
+      .then(() => {
+        this.setIntervalTime();
+        if (this.props.erroMessage && this.props.erroMessage != '') {
+          clearInterval(setIntervalTime);
+          this.showToast(this.props.erroMessage);
+        } else {
+          this.showToast('电话拨打中...请留意相关电话');
+        }
+      });
+  };
 
   render() {
     const { sending, smsTime } = this.props;
     if (Taro.getEnv() === Taro.ENV_TYPE.WEAPP) {
       this.setState({
         sending,
-        smsTime
-      })
+        smsTime,
+      });
     }
     return (
       <View className="login-page" id="login-page">
@@ -147,15 +158,41 @@ export default class Login extends Component {
         <View className="bgtopWrap">
           <View className="loginWrap">
             <View className="inpuWrapMpblie">
-              <Input type="number" name="mobile" maxLength="11" placeholder="请输入手机号" value={this.props.mobile} onInput={this.getMobile} />
+              <Input
+                type="number"
+                name="mobile"
+                maxLength="11"
+                placeholder="请输入手机号"
+                value={this.props.mobile}
+                onInput={this.getMobile}
+              />
             </View>
             <View className="inpuWrapNumber">
-              <Input type="number" name="code" maxLength="4" placeholder="请输入验证码" value={this.props.code} onInput={this.getCode} />
-              {this.state.sending == 2 && <View className="numberWrap" onClick={this.sendSms}>重新获取</View>}
-              {this.state.sending == 1 && <View className="numberWrap">{`${smsTime}秒后重发`}</View>}
-              {this.state.sending == 0 && <View className="numberWrap" onClick={this.sendSms}>获取验证码</View>}
+              <Input
+                type="number"
+                name="code"
+                maxLength="4"
+                placeholder="请输入验证码"
+                value={this.props.code}
+                onInput={this.getCode}
+              />
+              {this.state.sending == 2 && (
+                <View className="numberWrap" onClick={this.sendSms}>
+                  重新获取
+                </View>
+              )}
+              {this.state.sending == 1 && (
+                <View className="numberWrap">{`${smsTime}秒后重发`}</View>
+              )}
+              {this.state.sending == 0 && (
+                <View className="numberWrap" onClick={this.sendSms}>
+                  获取验证码
+                </View>
+              )}
             </View>
-            <Button className="button" onClick={this.login}>登录</Button>
+            <Button className="button" onClick={this.login}>
+              登录
+            </Button>
             <View className="see-des" onClick={this.getVoiceCode}>
               收不到短信？
               <Text>使用语音验证码</Text>
@@ -166,3 +203,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default Login;

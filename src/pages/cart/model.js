@@ -8,41 +8,40 @@ export default {
 
   reducers: {
     save(state, { payload }) {
-      Taro.setStorageSync('items',[
-        ...state.items,
-        ...payload.items,
-      ]);
+      Taro.setStorageSync('items', [...state.items, ...payload.items]);
       return { ...state, ...payload };
     },
     deleteClothes(state, { payload }) {
       const { id } = payload;
-      const items = state.items.filter((item) => item.product_id != id);
+      const items = state.items.filter(item => item.product_id != id);
       // 设置衣袋小红点
       if (items.length > 0) {
-        Taro.setStorageSync('items',items);
+        Taro.setStorageSync('items', items);
         Taro.setTabBarBadge({
           index: 1,
           text: String(items.length),
-        })
-      }else {
+        });
+      } else {
         Taro.removeStorageSync('items');
         Taro.removeTabBarBadge({
           index: 1,
-        })
+        });
       }
-      return { ...state, ...{
-        items
-      }};
+      return {
+        ...state,
+        ...{
+          items,
+        },
+      };
     },
     init() {
       Taro.removeStorageSync('items');
       Taro.removeTabBarBadge({
         index: 1,
-      })
+      });
       return {
-        items: []
+        items: [],
       };
     },
   },
-
 };

@@ -10,7 +10,7 @@ import './index.scss';
   ...cart,
   ...loading,
 }))
-export default class Index extends Component {
+class Index extends Component {
   config = {
     navigationBarTitleText: '首页',
   };
@@ -28,11 +28,11 @@ export default class Index extends Component {
       Taro.setTabBarBadge({
         index: 1,
         text: String(this.props.items.length),
-      })
-    }else {
+      });
+    } else {
       Taro.removeTabBarBadge({
         index: 1,
-      })
+      });
     }
   };
 
@@ -41,8 +41,8 @@ export default class Index extends Component {
     return {
       title: '基于Taro框架开发的时装衣橱',
       path: '/pages/home/index',
-    }
-  };
+    };
+  }
 
   // 小程序上拉加载
   onReachBottom() {
@@ -63,18 +63,21 @@ export default class Index extends Component {
       <View className="home-page">
         <MySwiper banner={banner} home />
         <View className="nav-list">
-          { brands.map((item, index) => (
+          {brands.map((item, index) => (
             <View className="nav-item" key={index}>
-              <Image mode="widthFix" src={item.image_src}></Image>
+              <Image mode="widthFix" src={item.image_src} />
             </View>
           ))}
         </View>
         {/* 流量主广告 */}
-        {Taro.getEnv() === Taro.ENV_TYPE.WEAPP && <ad unit-id="adunit-dc1c0a38156fa412"></ad>}
+        {Taro.getEnv() === Taro.ENV_TYPE.WEAPP && (
+          <ad unit-id="adunit-dc1c0a38156fa412" />
+        )}
         <Text className="recommend">为你推荐</Text>
         <GoodsList list={products_list} loading={effects['home/product']} />
       </View>
-    )
+    );
   }
 }
 
+export default Index;
