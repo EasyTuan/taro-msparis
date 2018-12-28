@@ -371,6 +371,16 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
+"@tarojs/taro-tt@^1.2.2":
+  version "1.2.2"
+  resolved "http://registry.npm.taobao.org/@tarojs/taro-tt/download/@tarojs/taro-tt-1.2.2.tgz#4766c47d8792dc2466ad6f7a6d26ea6e33f65875"
+  integrity sha1-R2bEfYeS3CRmrW96bSbqbjP2WHU=
+  dependencies:
+    "@tarojs/taro" "1.2.2"
+    "@tarojs/utils" "1.2.2"
+    lodash "^4.17.10"
+    prop-types "^15.6.1"
+
 "@tarojs/taro-weapp@1.2.2":
   version "1.2.2"
   resolved "http://registry.npm.taobao.org/@tarojs/taro-weapp/download/@tarojs/taro-weapp-1.2.2.tgz#e94187d46b8b87f054dde2db6c8a727ab64bf9c4"
