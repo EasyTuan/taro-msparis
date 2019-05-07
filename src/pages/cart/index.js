@@ -50,11 +50,11 @@ class Cart extends Component {
     });
   };
 
-  componentDidMount = () => {
-    wx.createInterstitialAd({
-      adUnitId: 'adunit-5266635b7140e545'
-    }).show()
-  };
+  // componentDidMount = () => {
+  //   wx.createInterstitialAd({
+  //     adUnitId: 'adunit-5266635b7140e545'
+  //   }).show()
+  // };
 
   componentDidShow() {
     // 设置衣袋小红点
