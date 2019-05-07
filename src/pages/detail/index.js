@@ -31,6 +31,9 @@ class Detail extends Component {
   }
 
   componentDidMount = () => {
+    wx.createInterstitialAd({
+      adUnitId: 'adunit-429a63d8019b0478'
+    }).show()
     this.setState({
       goodsId: this.$router.params.id,
     });
