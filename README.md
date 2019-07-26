@@ -64,6 +64,10 @@ npm run tep `文件名`
 
 ```
 
+## 休闲一刻
+
+<img src="screenshots/gh_a896d27a50a3_430.jpg" width="250"/> <img src="screenshots/gh_44a51ea2dd08_430.jpg" width="250"/>
+
 ## 项目说明
 
 **git分支说明：**
