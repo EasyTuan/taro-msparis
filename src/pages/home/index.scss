@@ -1,21 +1,44 @@
-@import '../../styles/mixin';
+@import '../../base.scss';
 
-.home-page {
-  @include wh(100%, 100%);
-  .nav-list {
-    @include fj(center);
-    flex-wrap: wrap;
-    margin-top: 20px;
-    .nav-item {
-      width: 23%;
-      margin: 0 5px;
+.index {
+  width: 100%;
+  @include flex-column;
+  .banner {
+    /* prettier-ignore */
+    height: 230PX;
+    width: 100%;
+    /* prettier-ignore */
+    .banner_item {
+      @include flex-row;
+      justify-content: space-around;
     }
   }
-  .recommend {
-    display: block;
+  .brands {
     width: 100%;
-    text-align: center;
-    margin: 30px 0;
-    font-size: 36px;
+    /* prettier-ignore */
+    margin-top:10PX;
+    /* prettier-ignore */
+    height:100PX;
+    @include flex-row;
+    justify-content: center;
+  }
+  .text {
+    /* prettier-ignore */
+    margin:4PX 0;
+    color: $text-color;
+    /* prettier-ignore */
+    font-size:12PX;
+  }
+  .products {
+    width: 98%;
+    margin: 0 auto;
+    @include flex-row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  .product1{
+    width: 48%;
+     /* prettier-ignore */
+    margin-bottom:5PX;
   }
 }

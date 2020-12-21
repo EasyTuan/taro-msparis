@@ -1,0 +1,57 @@
+$primary-color: #ec7063;
+$text-color: #302e2e;
+$background-color: #f0f0f0;
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@mixin flex-row {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+@mixin flex-column {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin modalStyle {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(146, 144, 144, 0.5);
+} //对话框浮层
+@mixin inputView {
+  width: 80%;
+  /* prettier-ignore */
+  height:30PX;
+  /* prettier-ignore */
+  font-size: 15PX;
+  /* prettier-ignore */
+  border-radius:3PX;
+  /* prettier-ignore */
+  border: 1PX solid #a19e9e;
+  @include flex-row;
+  /* prettier-ignore */
+  margin-bottom:5PX;
+  /* prettier-ignore */
+  margin-top:5PX;
+  /* prettier-ignore */
+  padding-left:5PX;
+}
+@mixin background_image {
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  position: fixed;
+} //透明背景图

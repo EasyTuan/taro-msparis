@@ -1,0 +1,175 @@
+@import '../../base.scss';
+
+.index {
+  width: 98vw;
+  /* prettier-ignore */
+  padding:0 2vw;
+  @include flex-column;
+  align-items: flex-start;
+  /* prettier-ignore */
+  font-size: 13PX;
+  .banner {
+    /* prettier-ignore */
+    height: 75vh;
+    width: 100%;
+    /* prettier-ignore */
+  }
+  .brand {
+    /* prettier-ignore */
+    margin-top:5PX;
+    font-weight: bold;
+  }
+  .tags {
+    /* prettier-ignore */
+    margin-top:5PX;
+    @include flex-row;
+    justify-content: flex-start;
+    /* prettier-ignore */
+    font-size: 9PX;
+    .tag {
+      /* prettier-ignore */
+      width: 30PX;
+      /* prettier-ignore */
+      height: 15PX;
+      color: white;
+      /* prettier-ignore */
+      /* prettier-ignore */
+      border-radius:3PX;
+      text-align: center;
+      /* prettier-ignore */
+      line-height: 15PX;
+      /* prettier-ignore */
+      margin-right:1PX;
+      &.vip {
+        background: $primary-color;
+      }
+      &.year_card {
+        background: $text-color;
+        /* prettier-ignore */
+        width: 50PX;
+      }
+    }
+    .name {
+      /* prettier-ignore */
+      font-size: 12PX;
+      /* prettier-ignore */
+      letter-spacing:2PX
+    }
+  }
+  .spu {
+    /* prettier-ignore */
+    margin-top:5PX;
+    /* prettier-ignore */
+    font-size: 9PX;
+    color: #464444;
+  }
+  .size {
+    /* prettier-ignore */
+    margin-top:5PX;
+    @include flex-row;
+    width: 90vw;
+    /* prettier-ignore */
+    height: 30PX;
+    justify-content: space-between;
+    .item {
+      flex-shrink: 0;
+      /* prettier-ignore */
+      padding:5PX;
+      /* prettier-ignore */
+      border: 1PX $text-color solid;
+      color: $text-color;
+      /* prettier-ignore */
+      font-size: 10PX;
+      /* prettier-ignore */
+      width:50PX;
+      text-align: center;
+    }
+  }
+  .checksize {
+    /* prettier-ignore */
+    margin-top:5PX;
+    color: #a09e9e;
+    /* prettier-ignore */
+    font-size: 10PX;
+  }
+  .hr {
+    width: 100%;
+    /* prettier-ignore */
+    margin:5PX 0 20PX 0;
+    border-bottom: 1px solid #b4b2b2;
+  }
+  .buyer {
+    @include flex-column;
+    align-items: flex-start;
+    /* prettier-ignore */
+    margin-bottom: 5PX;
+    .info {
+      /* prettier-ignore */
+      margin-top:5PX;
+      @include flex-row;
+      align-items: flex-start;
+      .text {
+        @include flex-column;
+        align-items: flex-start;
+        :nth-child(2) {
+          color: #a09e9e;
+          /* prettier-ignore */
+          font-size: 10PX;
+        }
+        :nth-child(3) {
+          /* prettier-ignore */
+          width:80vw;
+          white-space: wrap;
+          /* prettier-ignore */
+          font-size: 11PX;
+        }
+      }
+    }
+  }
+  .detail {
+    @include flex-column;
+    align-items: flex-start;
+    /* prettier-ignore */
+    margin-bottom: 5PX;
+    .head {
+      @include flex-row;
+      color: #a09e9e;
+      /* prettier-ignore */
+      font-size: 11PX;
+    }
+    .info {
+      color: #a09e9e;
+      /* prettier-ignore */
+      font-size: 10PX;
+    }
+  }
+  .comments {
+    /* prettier-ignore */
+    margin-bottom: 5PX;
+  }
+  .intro {
+    @include flex-column;
+    align-items: flex-start;
+    /* prettier-ignore */
+    margin-bottom: 5PX;
+    :nth-child(2) {
+      /* prettier-ignore */
+      margin:10Px 0;
+      width: 94vw;
+      border: 1px solid #a09e9e;
+      /* prettier-ignore */
+      height:30PX;
+      /* prettier-ignore */
+      line-height:30PX;
+      text-align: center;
+      font-weight: bold;
+    }
+    :nth-child(3) {
+      width: 94vw;
+      white-space: wrap;
+      /* prettier-ignore */
+      font-size: 11PX;
+      color: #a09e9e;
+    }
+  }
+}
