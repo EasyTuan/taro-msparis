@@ -37,6 +37,6 @@
     │   ├── app.tsx            // 入口文件
     │   └── index.html         // 入口页面
     ├── package.json
-    └── template.ts            // pages模版快速生成脚本,执行命令 npm run tep `文件名`
+    └── template.js            // pages模版快速生成脚本,执行命令 npm run tep `文件名`
 
 ### 功能截图

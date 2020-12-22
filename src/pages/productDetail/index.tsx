@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Image, Swiper, SwiperItem, Text } from '@tarojs/components'
-import useDetailModel from '../../models/Detail'
 import classnames from 'classnames'
+import useDetailModel from '../../models/Detail'
 import measure_icon from '../../images/icon/measure.png'
 import { Comment } from '../../components/comment/index'
 import './index.scss'
+
+const I1 =
+  'http://static-r.msparis.com/uploads/d/6/d646e479e328e9f370462b51fb841e70.png'
+const I2 =
+  'http://static-r.msparis.com/uploads/1/3/137d9963d13a053a6a81784af1256aa9.png'
+const I3 =
+  'http://static-r.msparis.com/uploads/c/0/c0367921e38cc7fd33f63897b18a86ef.png'
 
 const ProductDetail: Taro.FC = () => {
   const detailModel = useDetailModel()
@@ -22,6 +29,11 @@ const ProductDetail: Taro.FC = () => {
     brand_desc,
   } = detailModel.DetailState
   const size = ['中码XS号', '中码S号', '中码M号', '中码L号']
+  const sercvice_desc = [
+    { id: 1, desc: { first: '每次4件', second: '无限换穿' }, src: I1 },
+    { id: 2, desc: { first: '五星洗护', second: '往返包邮' }, src: I2 },
+    { id: 3, desc: { first: '一键还衣', second: '快递上门' }, src: I3 },
+  ]
   const measure = measurement.split('\n')
   const { id } = Taro.getCurrentInstance()?.router?.params || {}
   const ID = Number(id || 0) //46091
@@ -67,8 +79,10 @@ const ProductDetail: Taro.FC = () => {
       )}
       <View className="spu">{product_spu}</View>
       <View className="size">
-        {size.map((item) => (
-          <View className="item">{item}</View>
+        {size.map((item, index) => (
+          <View className="item" key={index}>
+            {item}
+          </View>
         ))}
       </View>
       <View className="checksize">查看各国尺码转换表</View>
@@ -95,15 +109,15 @@ const ProductDetail: Taro.FC = () => {
           <View className="measure">平铺测量</View>
         </View>
         <View className="info">
-          {measure.map((item) => (
-            <View>{item}</View>
+          {measure.map((item, index) => (
+            <View key={index}>{item}</View>
           ))}
         </View>
       </View>
       <View className="comments">
         <View>{`优质评价(${comments.total})`}</View>
-        {comments.rows.map((item) => (
-          <Comment item={item} />
+        {comments.rows.map((item, index) => (
+          <Comment item={item} key={index} />
         ))}
       </View>
       <View className="intro">
@@ -112,6 +126,19 @@ const ProductDetail: Taro.FC = () => {
         <View>{brand_desc}</View>
       </View>
       <View>服务说明</View>
+      <View className="service_desc">
+        {sercvice_desc.map((item) => (
+          <View className="item" key={item.id}>
+            <View className="first">
+              <Image src={item.src} style={{ width: '100%' }} mode="widthFix" />
+            </View>
+            <View className="second">
+              <View>{item.desc.first}</View>
+              <View>{item.desc.second}</View>
+            </View>
+          </View>
+        ))}
+      </View>
       <View>foot</View>
     </View>
   )

@@ -4,7 +4,7 @@
   "description": "多端适用的电子商城",
   "appid": "wx9d3f6e4de32933ae",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": false,
     "enhance": false,
     "postcss": false,
