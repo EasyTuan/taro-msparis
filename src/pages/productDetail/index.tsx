@@ -39,6 +39,7 @@ const ProductDetail: Taro.FC = () => {
   const ID = Number(id || 0) //46091
   useEffect(() => {
     detailModel.updateDetail(ID)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <View className="index">
@@ -125,21 +126,26 @@ const ProductDetail: Taro.FC = () => {
         <View>{`${brand}  →`}</View>
         <View>{brand_desc}</View>
       </View>
-      <View>服务说明</View>
-      <View className="service_desc">
-        {sercvice_desc.map((item) => (
-          <View className="item" key={item.id}>
-            <View className="first">
-              <Image src={item.src} style={{ width: '100%' }} mode="widthFix" />
+      <View className='service'>
+        <View>服务说明</View>
+        <View className="service_desc">
+          {sercvice_desc.map((item) => (
+            <View className="item" key={item.id}>
+              <View className="first">
+                <Image
+                  src={item.src}
+                  style={{ width: '100%' }}
+                  mode="widthFix"
+                />
+              </View>
+              <View className="second">
+                <View>{item.desc.first}</View>
+                <View>{item.desc.second}</View>
+              </View>
             </View>
-            <View className="second">
-              <View>{item.desc.first}</View>
-              <View>{item.desc.second}</View>
-            </View>
-          </View>
-        ))}
+          ))}
+        </View>
       </View>
-      <View>foot</View>
     </View>
   )
 }
