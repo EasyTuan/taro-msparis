@@ -1,5 +1,5 @@
 $primary-color: #ec7063;
-$text-color: #302e2e;
+$text-color: #5e5b5b;
 $background-color: #f0f0f0;
 
 @mixin text-ellipsis {
@@ -16,8 +16,8 @@ $background-color: #f0f0f0;
 @mixin flex-column {
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 @mixin modalStyle {
   width: 100%;

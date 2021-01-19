@@ -7,9 +7,16 @@ import './index.scss'
 const My: Taro.FC = () => {
   return (
     <View className="index">
-      <View>Hello World</View>
+      <View
+        onClick={() => {
+          Taro.navigateTo({
+            url: '../login/index',
+          })
+        }}
+      >
+        请登录
+      </View>
     </View>
   )
 }
 export default My
-

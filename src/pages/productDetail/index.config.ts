@@ -1,4 +1,4 @@
 export default {
-    navigationBarTitleText: '商品详情页'
+    navigationBarTitleText: '商品详情'
   }
   

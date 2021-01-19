@@ -1,0 +1,50 @@
+@import '../../base.scss';
+
+.index {
+  height: 100%;
+  width: 90vw;
+  margin: 0 auto;
+  @include flex-column;
+  .title {
+    /* prettier-ignore */
+    margin-bottom:20vh;
+    :nth-child(2) {
+       /* prettier-ignore */
+      font-size: 10PX;
+      color: $text-color;
+    }
+  }
+  .form {
+    @include flex-column;
+    .input {
+      /* prettier-ignore */
+      width:90vw;
+      /* prettier-ignore */
+      border-bottom:0.5PX solid #f1efef;
+      /* prettier-ignore */
+      margin-bottom:10PX;
+    }
+    .codeInput {
+      .hint {
+        position: relative;
+        color: rgb(124, 64, 64);
+        /* prettier-ignore */
+        top:-30PX;
+        /* prettier-ignore */
+        left:70vw;
+      }
+    }
+    .loginButton {
+      background: #2c2c2c;
+      color: #fdfefe;
+      width: 100%;
+      /* prettier-ignore */
+      margin-top:-10PX;
+    }
+    :last-child {
+      /* prettier-ignore */
+      font-size: 10PX;
+      color: $text-color;
+    }
+  }
+}
