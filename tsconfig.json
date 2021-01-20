@@ -28,5 +28,6 @@
     "node_modules",
     "dist"
   ],
-  "compileOnSave": false
+  "compileOnSave": false,
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }

@@ -3,6 +3,7 @@
 .index {
   width: 100%;
   @include flex-column;
+  align-items: center;
   .banner {
     /* prettier-ignore */
     height: 230PX;
@@ -36,9 +37,9 @@
     justify-content: space-around;
     align-items: flex-start;
   }
-  .product1{
+  .product1 {
     width: 48%;
-     /* prettier-ignore */
+    /* prettier-ignore */
     margin-bottom:5PX;
   }
 }

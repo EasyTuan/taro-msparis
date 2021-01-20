@@ -1,6 +1,9 @@
 @import '../../base.scss';
 
 .index {
-  height:100%;
+  height: 100%;
   @include flex-column;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 30vh;
 }
