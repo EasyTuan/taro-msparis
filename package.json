@@ -8,7 +8,6 @@
     "typescript": true,
     "css": "sass"
   },
-  "type": "module",
   "scripts": {
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",

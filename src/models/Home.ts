@@ -28,7 +28,7 @@ function useHome() {
     console.log('prevState', homeState)
     const { banner, brands } = await getHome()
     const defProduct = (await getProducts()).products
-    const products = [...homeState.products,...defProduct]
+    const products = [...homeState.products, ...defProduct]
     const newHomeState = {
       ...homeState,
       banner,

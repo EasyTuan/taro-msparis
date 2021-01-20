@@ -9,7 +9,7 @@
     /* prettier-ignore */
     margin-bottom:20vh;
     :nth-child(2) {
-       /* prettier-ignore */
+      /* prettier-ignore */
       font-size: 10PX;
       color: $text-color;
     }
@@ -26,6 +26,9 @@
     }
     .codeInput {
       .hint {
+        z-index:10;
+        /* prettier-ignore */
+        width:60PX;
         position: relative;
         color: rgb(124, 64, 64);
         /* prettier-ignore */
