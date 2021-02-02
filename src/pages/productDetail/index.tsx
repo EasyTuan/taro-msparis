@@ -5,6 +5,9 @@ import classnames from 'classnames'
 import useDetailModel from '../../models/Detail'
 import measure_icon from '../../images/icon/measure.png'
 import { Comment } from '../../components/comment/index'
+import home from '../../images/tab/home.png'
+import kefu from '../../images/icon/customerservice.png'
+import cart from '../../images/tab/cart.png'
 import './index.scss'
 
 const I1 =
@@ -13,7 +16,6 @@ const I2 =
   'http://static-r.msparis.com/uploads/1/3/137d9963d13a053a6a81784af1256aa9.png'
 const I3 =
   'http://static-r.msparis.com/uploads/c/0/c0367921e38cc7fd33f63897b18a86ef.png'
-
 const ProductDetail: Taro.FC = () => {
   const detailModel = useDetailModel()
   const {
@@ -39,8 +41,27 @@ const ProductDetail: Taro.FC = () => {
   const ID = Number(id || 0) //46091
   useEffect(() => {
     detailModel.updateDetail(ID)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  const footIcons = [
+    { src: home, name: '首页', to: '/pages/home/index' },
+    { src: kefu, name: '客服', to: '' },
+    { src: cart, name: '衣袋', to: '/pages/cart/index' },
+  ]
+  const switchTab = (to) => {
+    Taro.switchTab({
+      url: to,
+    })
+  }
+  const callService = () => {
+    if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
+      window.location.href = 'tel:123456'
+    } else {
+      Taro.makePhoneCall({
+        phoneNumber: '123456',
+      })
+    }
+  }
   return (
     <View className="index">
       <Swiper
@@ -126,7 +147,7 @@ const ProductDetail: Taro.FC = () => {
         <View>{`${brand}  →`}</View>
         <View>{brand_desc}</View>
       </View>
-      <View className='service'>
+      <View className="service">
         <View>服务说明</View>
         <View className="service_desc">
           {sercvice_desc.map((item) => (
@@ -145,6 +166,27 @@ const ProductDetail: Taro.FC = () => {
             </View>
           ))}
         </View>
+      </View>
+      <View className="footer">
+        <View className="left">
+          {footIcons.map((item) => (
+            <View
+              key={item.name}
+              className="icon"
+              onClick={
+                item.to
+                  ? () => {
+                      switchTab(item.to)
+                    }
+                  : callService
+              }
+            >
+              <Image src={item.src} style={{ width: 25 }} mode="widthFix" />
+              <View>{item.name}</View>
+            </View>
+          ))}
+        </View>
+        <View className="right">加入衣袋</View>
       </View>
     </View>
   )

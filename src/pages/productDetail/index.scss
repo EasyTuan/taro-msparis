@@ -198,4 +198,41 @@
       }
     }
   }
+  .footer {
+    position: fixed;
+    z-index: 1000;
+    background: white;
+    border: none;
+    /* prettier-ignore */
+    height: 8vh;
+    width: 100%;
+    bottom: 0;
+    .left {
+      @include flex-row;
+      position: absolute;
+      width: 60%;
+      left: 0;
+      height: 100%;
+      /* prettier-ignore */
+      font-size: 10PX;
+      .icon {
+        @include flex-column;
+        :nth-child(1) {
+          border-radius: 50%;
+        }
+      }
+    }
+    .right {
+      position: absolute;
+      width: 39%;
+      height: 100%;
+      right: 0;
+      background: $primary-color;
+      color: white;
+      opacity: 0.3;
+      /* prettier-ignore */
+      line-height: 8vh;
+      text-align: center;
+    }
+  }
 }
