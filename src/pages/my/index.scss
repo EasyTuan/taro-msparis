@@ -1,0 +1,6 @@
+@import '../../base.scss';
+
+.index {
+  height:100%;
+  @include flex-column;
+}

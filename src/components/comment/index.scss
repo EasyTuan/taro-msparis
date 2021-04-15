@@ -1,0 +1,46 @@
+@import '../../base.scss';
+
+.comment {
+  @include flex-column;
+  align-items: flex-start;
+  /* prettier-ignore */
+  margin-bottom:10PX;
+  .info {
+    /* prettier-ignore */
+    margin-top:5PX;
+    @include flex-row;
+    align-items: flex-start;
+    .text {
+      @include flex-column;
+      align-items: flex-start;
+      /* prettier-ignore */
+      margin-left: 5PX;
+      :nth-child(2) {
+        color: #a09e9e;
+        /* prettier-ignore */
+        font-size: 10PX;
+      }
+      :nth-child(3) {
+        /* prettier-ignore */
+        width:70vw;
+        white-space: wrap;
+        /* prettier-ignore */
+        font-size: 11PX;
+      }
+    }
+  }
+  .images {
+    @include flex-row;
+    /* prettier-ignore */
+    margin-left:35PX;
+    justify-content: flex-start;
+    width: 100vw;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    .item {
+      /* prettier-ignore */
+      margin-right:8PX;
+      flex-shrink: 0;
+    }
+  }
+}

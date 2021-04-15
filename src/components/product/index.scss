@@ -1,0 +1,59 @@
+@import '../../base.scss';
+
+.product {
+  width: 100%;
+  /* prettier-ignore */
+  height:280PX;
+  color: $text-color;
+  /* prettier-ignore */
+  font-size: 12PX;
+  @include flex-column;
+  align-items: flex-start;
+  /* prettier-ignore */
+  margin-bottom:5PX;
+  .tags {
+    @include flex-row;
+    justify-content: flex-start;
+    /* prettier-ignore */
+    font-size: 9PX;
+    .price {
+      background: white;
+      color: rgb(111, 109, 109);
+      /* prettier-ignore */
+      border: 1PX solid rgb(114, 111, 111);
+      /* prettier-ignore */
+      width: 65PX;
+      /* prettier-ignore */
+      height: 15PX;
+      /* prettier-ignore */
+      border-radius:3PX;
+      text-align: center;
+      /* prettier-ignore */
+      line-height: 15PX;
+      /* prettier-ignore */
+    }
+    .tag {
+      /* prettier-ignore */
+      width: 30PX;
+      /* prettier-ignore */
+      height: 15PX;
+      color: white;
+      /* prettier-ignore */
+      /* prettier-ignore */
+      border-radius:3PX;
+      text-align: center;
+      /* prettier-ignore */
+      line-height: 15PX;
+      /* prettier-ignore */
+      margin-right:1PX;
+      &.vip {
+        background: $primary-color;
+      }
+      &.year_card {
+        background: $text-color;
+        /* prettier-ignore */
+        width: 50PX;
+      }
+    }
+  }
+}
