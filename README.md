@@ -11,8 +11,12 @@
 ### 功能列表
 
 - [x] 首页
+  - [x] 滚动到底部加载
+  - [x] 自定义 tabBar
 - [x] 登录页
+  - [x] 首页
 - [x] 商品详情页
+  - [x] 评论多图显示
 
 ### 目录结构
 
@@ -42,3 +46,5 @@
     └── template.js            // pages模版快速生成脚本,执行命令 npm run tep `文件名`
 
 ### 功能截图
+
+<image width='100' src="https://raw.githubusercontent.com/wussss/taro-msparis/master/src/screenshots/1.png"/> <image width='100' src="https://raw.githubusercontent.com/wussss/taro-msparis/master/src/screenshots/2.png"/> <image width='100' src="https://raw.githubusercontent.com/wussss/taro-msparis/master/src/screenshots/3.png"/> <image width='100' src="https://raw.githubusercontent.com/wussss/taro-msparis/master/src/screenshots/4.png"/>
